@@ -1,0 +1,47 @@
+{
+  "name": "nicename",
+  "description": "parser for only bracket.",
+  "version": "0.0.0",
+  "author": {
+    "name": "elzup",
+    "email": "guild0105@gmail.com",
+    "url": "elzup.com"
+  },
+  "babel": {
+    "presets": [
+      "flow",
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": ["last 2 versions"]
+          }
+        }
+      ]
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.0.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "^0.74.0",
+    "flow-copy-source": "^2.0.0",
+    "jest": "^23.1.0"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "files": ["dist"],
+  "keywords": ["parser", "bracket", "brace", "syntax"],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": "elzup/nicename",
+  "scripts": {
+    "build": "babel src --out-dir dist && npm run prepack:flow",
+    "prepack:flow": "flow-copy-source src dist",
+    "test": "jest"
+  }
+}
