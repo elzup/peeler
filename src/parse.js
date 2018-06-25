@@ -47,7 +47,7 @@ function parse(text: string, options: Options): PNode[] {
     }
   }
   const node = ns.pop()
-  node.nodes.push(makeText(0, 0, 0, text.substring(p)))
+  node.nodes.push(makeText(p, text.length, 0, text.substring(p)))
   return node.nodes
 }
 export default parse

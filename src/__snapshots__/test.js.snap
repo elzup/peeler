@@ -29,8 +29,8 @@ Array [
   Object {
     "content": "ccc[ddd]",
     "depth": 0,
-    "end": 0,
-    "start": 0,
+    "end": 18,
+    "start": 10,
     "type": "text",
   },
 ]
@@ -113,8 +113,8 @@ Array [
   Object {
     "content": "",
     "depth": 0,
-    "end": 0,
-    "start": 0,
+    "end": 6,
+    "start": 6,
     "type": "text",
   },
 ]
@@ -257,8 +257,8 @@ Array [
   Object {
     "content": "aa",
     "depth": 0,
-    "end": 0,
-    "start": 0,
+    "end": 29,
+    "start": 27,
     "type": "text",
   },
 ]
@@ -341,8 +341,8 @@ Array [
   Object {
     "content": "",
     "depth": 0,
-    "end": 0,
-    "start": 0,
+    "end": 10,
+    "start": 10,
     "type": "text",
   },
 ]
@@ -377,8 +377,8 @@ Array [
   Object {
     "content": "",
     "depth": 0,
-    "end": 0,
-    "start": 0,
+    "end": 2,
+    "start": 2,
     "type": "text",
   },
 ]
@@ -437,8 +437,8 @@ Array [
   Object {
     "content": "",
     "depth": 0,
-    "end": 0,
-    "start": 0,
+    "end": 4,
+    "start": 4,
     "type": "text",
   },
 ]
@@ -473,8 +473,8 @@ Array [
   Object {
     "content": "))",
     "depth": 0,
-    "end": 0,
-    "start": 0,
+    "end": 6,
+    "start": 4,
     "type": "text",
   },
 ]
@@ -533,8 +533,8 @@ Array [
   Object {
     "content": ")",
     "depth": 0,
-    "end": 0,
-    "start": 0,
+    "end": 6,
+    "start": 5,
     "type": "text",
   },
 ]
@@ -569,8 +569,8 @@ Array [
   Object {
     "content": "after",
     "depth": 0,
-    "end": 0,
-    "start": 0,
+    "end": 16,
+    "start": 11,
     "type": "text",
   },
 ]
@@ -653,8 +653,8 @@ Array [
   Object {
     "content": "aa",
     "depth": 0,
-    "end": 0,
-    "start": 0,
+    "end": 20,
+    "start": 18,
     "type": "text",
   },
 ]
