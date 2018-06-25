@@ -26,6 +26,11 @@ test('bracket options', () => {
       pairs: ['()'],
     })
   ).toMatchSnapshot('() only')
+  expect(
+    m('tOshinO kyoko', {
+      pairs: ['Oo'],
+    })
+  ).toMatchSnapshot('rare option')
 })
 
 test('nestMax options', () => {
