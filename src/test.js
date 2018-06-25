@@ -14,6 +14,12 @@ test('complex', () => {
   expect(m('[({})]')).toMatchSnapshot('any bracket')
 })
 
+test('escape works', () => {
+  console.log('\\'.length)
+  expect(m('\\')).toMatchSnapshot()
+  expect(m('(\\(OK\\)\\[GOOD\\])')).toMatchSnapshot()
+})
+
 test('bracket options', () => {
   expect(
     m('aaa(bbb{})ccc[ddd]', {

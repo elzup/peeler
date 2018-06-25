@@ -23,4 +23,5 @@ export type PairLib = { [key: string]: string }
 export type Options = {
   pairs: string[],
   nestMax: number,
+  escape: string,
 }

@@ -3,13 +3,14 @@
 import type { PNode, Options, PairLib, PNodeBracket } from './types'
 import parse from './parse'
 
-function main(text: string, options: Options): PNode[] {
+function main(text: string, options?: Options): PNode[] {
   if (typeof text !== 'string') {
     throw new TypeError(`Expected a string, got ${typeof text}`)
   }
   const defaultOptions: Options = {
     pairs: ['()', '{}', '[]'],
     nestMax: 100,
+    escape: '\\',
   }
   const opt = Object.assign(defaultOptions, options || {})
   if (opt.pairs.some(v => v.length < 2)) {
@@ -21,7 +22,12 @@ function main(text: string, options: Options): PNode[] {
   }
   const { opens, closes } = toLib(opt.pairs)
 
-  return parse(text, { opens, closes, nestMax: opt.nestMax })
+  return parse(text, {
+    opens,
+    closes,
+    nestMax: opt.nestMax,
+    escape: opt.escape,
+  })
 }
 
 function toLib(pairs: string[]): { opens: PairLib, closes: PairLib } {
