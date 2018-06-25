@@ -1,17 +1,21 @@
 // @flow
-export type NodeBase = {
+
+export type Pos = {
   start: number,
   end: number,
   depth: number,
 }
+export type NodeBase = {
+  pos: Pos,
+}
 
 export type PNodeText = {
-  type: 'text',
+  nodeType: 'text',
   content: string,
 } & NodeBase
 
 export type PNodeBracket = {
-  type: 'bracket',
+  nodeType: 'bracket',
   open: string,
   close: string,
   nodes: PNode[],

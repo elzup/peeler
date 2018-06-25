@@ -1,19 +1,10 @@
 // @flow
 
-import type { PNode, PairLib, PNodeBracket, Options } from './types'
+import type { PNode, PairLib, PNodeBracket, Options, Pos } from './types'
 
-const makeText = (start, end, depth, content) => ({
-  type: 'text',
-  start,
-  end,
-  depth,
-  content,
-})
-const makeBracket = (start, end, depth, open = '', close = '') => ({
-  type: 'bracket',
-  start,
-  end,
-  depth,
+const makeBracket = (pos: Pos, open: string = '--', close: string = '--') => ({
+  nodeType: 'bracket',
+  pos,
   open,
   close,
   nodes: [],
@@ -30,19 +21,14 @@ function toLib(pairs: string[]): { opens: PairLib, closes: PairLib } {
   return { opens, closes }
 }
 
-function addText({
-  text,
-  parent,
-  start,
-  end,
-  opt,
-}: {
+function addText(p: {
   text: string,
   parent: PNodeBracket,
   start: number,
   end: number,
   opt: Options,
 }) {
+  const { text, parent, start, end, opt } = p
   if (start === end && !opt.includeEmpty) {
     return
   }
@@ -52,21 +38,23 @@ function addText({
   const delEscape = (text: string) => {
     return escapers.reduce((p, c) => p.split(c).join(c[1]), text)
   }
-  parent.nodes.push(
-    makeText(
+  const depth = parent.pos.depth + 1
+  parent.nodes.push({
+    nodeType: 'text',
+    pos: {
       start,
       end,
-      parent.depth + 1,
-      delEscape(text.substring(start, end))
-    )
-  )
+      depth,
+    },
+    content: delEscape(text.substring(start, end)),
+  })
 }
 
 function parse(text: string, opt: Options): PNode[] {
   const { pairs, nestMax, escape, includeEmpty } = opt
   const { opens, closes } = toLib(pairs)
 
-  const ns: PNodeBracket[] = [makeBracket(0, 0, -1)]
+  const ns: PNodeBracket[] = [makeBracket({ start: 0, end: 0, depth: -1 })]
   let p = 0
   for (let i = 0; i < text.length; i++) {
     const parent = ns.pop()
@@ -84,12 +72,18 @@ function parse(text: string, opt: Options): PNode[] {
       }
       addText({ text, parent, start: p, end: i, opt })
       ns.push(parent)
-      ns.push(makeBracket(i, -1, parent.depth + 1, c, closes[c]))
+      ns.push(
+        makeBracket(
+          { start: i, end: -1, depth: parent.pos.depth + 1 },
+          c,
+          closes[c]
+        )
+      )
       p = i + 1
     } else if (opens[c] === parent.open) {
       const parent2 = ns.pop()
       addText({ text, parent, start: p, end: i, opt })
-      parent.end = i
+      parent.pos.end = i
       parent2.nodes.push(parent)
       ns.push(parent2)
       p = i + 1
@@ -102,7 +96,9 @@ function parse(text: string, opt: Options): PNode[] {
   }
   const parent = ns.pop()
   if (ns.length > 0) {
-    throw new Error(`ParseErorr: 404 pair '${parent.open}' :${parent.start}`)
+    throw new Error(
+      `ParseErorr: 404 pair '${parent.open}' :${parent.pos.start}`
+    )
   }
   addText({ text, parent, start: p, end: text.length, opt })
   return parent.nodes
