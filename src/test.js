@@ -12,6 +12,10 @@ test('complex', () => {
   expect(m('({}fuga{})')).toMatchSnapshot('nest side')
   expect(m('aa({cc}bb{c2(dd)c2}b)aa(b2)aa')).toMatchSnapshot('gata gata')
   expect(m('[({})]')).toMatchSnapshot('any bracket')
+  expect(
+    m(`hel(lo
+go)od by`)
+  ).toMatchSnapshot('with newline')
 })
 
 test('escape works', () => {

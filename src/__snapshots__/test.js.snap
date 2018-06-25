@@ -504,6 +504,43 @@ Array [
 ]
 `;
 
+exports[`complex: with newline 1`] = `
+Array [
+  Object {
+    "content": "hel",
+    "depth": 0,
+    "end": 3,
+    "start": 0,
+    "type": "text",
+  },
+  Object {
+    "close": ")",
+    "depth": 0,
+    "end": 9,
+    "nodes": Array [
+      Object {
+        "content": "lo
+go",
+        "depth": 1,
+        "end": 9,
+        "start": 4,
+        "type": "text",
+      },
+    ],
+    "open": "(",
+    "start": 3,
+    "type": "bracket",
+  },
+  Object {
+    "content": "od by",
+    "depth": 0,
+    "end": 15,
+    "start": 10,
+    "type": "text",
+  },
+]
+`;
+
 exports[`escape works 1`] = `
 Array [
   Object {
