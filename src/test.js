@@ -14,6 +14,14 @@ test('complex', () => {
   expect(m('[({})]')).toMatchSnapshot('any bracket')
 })
 
+test('bracket options', () => {
+  expect(
+    m('aaa(bbb{})ccc[ddd]', {
+      pairs: ['()'],
+    })
+  ).toMatchSnapshot('() only')
+})
+
 test('error', () => {
   // '('
   // 'hog{e(b}c)d'

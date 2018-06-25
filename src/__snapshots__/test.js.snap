@@ -1,5 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`bracket options: () only 1`] = `
+Array [
+  Object {
+    "content": "aaa",
+    "type": "text",
+  },
+  Object {
+    "close": ")",
+    "nodes": Array [
+      Object {
+        "content": "bbb{}",
+        "type": "text",
+      },
+    ],
+    "open": "(",
+    "type": "bracket",
+  },
+  Object {
+    "content": "ccc[ddd]",
+    "type": "text",
+  },
+]
+`;
+
 exports[`complex: any bracket 1`] = `
 Array [
   Object {
