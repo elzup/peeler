@@ -2,9 +2,18 @@
 
 import type { PNode, PairLib, PNodeBracket } from './types'
 
-const makeText = content => ({ type: 'text', content })
-const makeBracket = (open = '', close = '') => ({
+const makeText = (start, end, depth, content) => ({
+  type: 'text',
+  start,
+  end,
+  depth,
+  content,
+})
+const makeBracket = (start, end, depth, open = '', close = '') => ({
   type: 'bracket',
+  start,
+  end,
+  depth,
   open,
   close,
   nodes: [],
@@ -15,29 +24,29 @@ type Options = { opens: PairLib, closes: PairLib, nestMax: number }
 function parse(text: string, options: Options): PNode[] {
   const { opens, closes, nestMax } = options
 
-  const nodeStacks: PNodeBracket[] = [makeBracket()]
+  const ns: PNodeBracket[] = [makeBracket(0, 0, -1)]
   let p = 0
   for (let i = 0; i < text.length; i++) {
-    const parent = nodeStacks.pop()
+    const parent = ns.pop()
     const c = text[i]
-    if (closes[c] !== undefined && nodeStacks.length < nestMax) {
-      parent.nodes.push(makeText(text.substring(p, i)))
-      nodeStacks.push(parent)
-      nodeStacks.push(makeBracket(c, closes[c]))
+    if (closes[c] !== undefined && ns.length < nestMax) {
+      parent.nodes.push(makeText(p, i, parent.depth + 1, text.substring(p, i)))
+      ns.push(parent)
+      ns.push(makeBracket(0, 0, parent.depth + 1, c, closes[c]))
       p = i + 1
     } else if (opens[c] === parent.open) {
-      const parent2 = nodeStacks.pop()
-      parent.nodes.push(makeText(text.substring(p, i)))
+      const parent2 = ns.pop()
+      parent.nodes.push(makeText(0, 0, parent.depth + 1, text.substring(p, i)))
       parent2.nodes.push(parent)
-      nodeStacks.push(parent2)
+      ns.push(parent2)
       p = i + 1
     } else {
-      nodeStacks.push(parent)
+      ns.push(parent)
       // no bracket char
     }
   }
-  const node = nodeStacks.pop()
-  node.nodes.push(makeText(text.substring(p)))
+  const node = ns.pop()
+  node.nodes.push(makeText(0, 0, 0, text.substring(p)))
   return node.nodes
 }
 export default parse
