@@ -12,18 +12,18 @@ Array [
   Object {
     "close": ")",
     "depth": 0,
-    "end": 0,
+    "end": 9,
     "nodes": Array [
       Object {
         "content": "bbb{}",
         "depth": 1,
-        "end": 0,
-        "start": 0,
+        "end": 9,
+        "start": 4,
         "type": "text",
       },
     ],
     "open": "(",
-    "start": 0,
+    "start": 3,
     "type": "bracket",
   },
   Object {
@@ -48,7 +48,7 @@ Array [
   Object {
     "close": "]",
     "depth": 0,
-    "end": 0,
+    "end": 5,
     "nodes": Array [
       Object {
         "content": "",
@@ -60,7 +60,7 @@ Array [
       Object {
         "close": ")",
         "depth": 1,
-        "end": 0,
+        "end": 4,
         "nodes": Array [
           Object {
             "content": "",
@@ -72,37 +72,37 @@ Array [
           Object {
             "close": "}",
             "depth": 2,
-            "end": 0,
+            "end": 3,
             "nodes": Array [
               Object {
                 "content": "",
                 "depth": 3,
-                "end": 0,
-                "start": 0,
+                "end": 3,
+                "start": 3,
                 "type": "text",
               },
             ],
             "open": "{",
-            "start": 0,
+            "start": 2,
             "type": "bracket",
           },
           Object {
             "content": "",
             "depth": 2,
-            "end": 0,
-            "start": 0,
+            "end": 4,
+            "start": 4,
             "type": "text",
           },
         ],
         "open": "(",
-        "start": 0,
+        "start": 1,
         "type": "bracket",
       },
       Object {
         "content": "",
         "depth": 1,
-        "end": 0,
-        "start": 0,
+        "end": 5,
+        "start": 5,
         "type": "text",
       },
     ],
@@ -144,7 +144,7 @@ Array [
   Object {
     "close": ")",
     "depth": 0,
-    "end": 0,
+    "end": 20,
     "nodes": Array [
       Object {
         "content": "",
@@ -156,18 +156,18 @@ Array [
       Object {
         "close": "}",
         "depth": 1,
-        "end": 0,
+        "end": 6,
         "nodes": Array [
           Object {
             "content": "cc",
             "depth": 2,
-            "end": 0,
-            "start": 0,
+            "end": 6,
+            "start": 4,
             "type": "text",
           },
         ],
         "open": "{",
-        "start": 0,
+        "start": 3,
         "type": "bracket",
       },
       Object {
@@ -180,7 +180,7 @@ Array [
       Object {
         "close": "}",
         "depth": 1,
-        "end": 0,
+        "end": 18,
         "nodes": Array [
           Object {
             "content": "c2",
@@ -192,42 +192,42 @@ Array [
           Object {
             "close": ")",
             "depth": 2,
-            "end": 0,
+            "end": 15,
             "nodes": Array [
               Object {
                 "content": "dd",
                 "depth": 3,
-                "end": 0,
-                "start": 0,
+                "end": 15,
+                "start": 13,
                 "type": "text",
               },
             ],
             "open": "(",
-            "start": 0,
+            "start": 12,
             "type": "bracket",
           },
           Object {
             "content": "c2",
             "depth": 2,
-            "end": 0,
-            "start": 0,
+            "end": 18,
+            "start": 16,
             "type": "text",
           },
         ],
         "open": "{",
-        "start": 0,
+        "start": 9,
         "type": "bracket",
       },
       Object {
         "content": "b",
         "depth": 1,
-        "end": 0,
-        "start": 0,
+        "end": 20,
+        "start": 19,
         "type": "text",
       },
     ],
     "open": "(",
-    "start": 0,
+    "start": 2,
     "type": "bracket",
   },
   Object {
@@ -240,18 +240,18 @@ Array [
   Object {
     "close": ")",
     "depth": 0,
-    "end": 0,
+    "end": 26,
     "nodes": Array [
       Object {
         "content": "b2",
         "depth": 1,
-        "end": 0,
-        "start": 0,
+        "end": 26,
+        "start": 24,
         "type": "text",
       },
     ],
     "open": "(",
-    "start": 0,
+    "start": 23,
     "type": "bracket",
   },
   Object {
@@ -276,7 +276,7 @@ Array [
   Object {
     "close": ")",
     "depth": 0,
-    "end": 0,
+    "end": 9,
     "nodes": Array [
       Object {
         "content": "",
@@ -288,18 +288,18 @@ Array [
       Object {
         "close": "}",
         "depth": 1,
-        "end": 0,
+        "end": 2,
         "nodes": Array [
           Object {
             "content": "",
             "depth": 2,
-            "end": 0,
-            "start": 0,
+            "end": 2,
+            "start": 2,
             "type": "text",
           },
         ],
         "open": "{",
-        "start": 0,
+        "start": 1,
         "type": "bracket",
       },
       Object {
@@ -312,25 +312,25 @@ Array [
       Object {
         "close": "}",
         "depth": 1,
-        "end": 0,
+        "end": 8,
         "nodes": Array [
           Object {
             "content": "",
             "depth": 2,
-            "end": 0,
-            "start": 0,
+            "end": 8,
+            "start": 8,
             "type": "text",
           },
         ],
         "open": "{",
-        "start": 0,
+        "start": 7,
         "type": "bracket",
       },
       Object {
         "content": "",
         "depth": 1,
-        "end": 0,
-        "start": 0,
+        "end": 9,
+        "start": 9,
         "type": "text",
       },
     ],
@@ -360,13 +360,13 @@ Array [
   Object {
     "close": ")",
     "depth": 0,
-    "end": 0,
+    "end": 1,
     "nodes": Array [
       Object {
         "content": "",
         "depth": 1,
-        "end": 0,
-        "start": 0,
+        "end": 1,
+        "start": 1,
         "type": "text",
       },
     ],
@@ -396,7 +396,7 @@ Array [
   Object {
     "close": ")",
     "depth": 0,
-    "end": 0,
+    "end": 3,
     "nodes": Array [
       Object {
         "content": "",
@@ -408,25 +408,25 @@ Array [
       Object {
         "close": ")",
         "depth": 1,
-        "end": 0,
+        "end": 2,
         "nodes": Array [
           Object {
             "content": "",
             "depth": 2,
-            "end": 0,
-            "start": 0,
+            "end": 2,
+            "start": 2,
             "type": "text",
           },
         ],
         "open": "(",
-        "start": 0,
+        "start": 1,
         "type": "bracket",
       },
       Object {
         "content": "",
         "depth": 1,
-        "end": 0,
-        "start": 0,
+        "end": 3,
+        "start": 3,
         "type": "text",
       },
     ],
@@ -456,13 +456,13 @@ Array [
   Object {
     "close": ")",
     "depth": 0,
-    "end": 0,
+    "end": 3,
     "nodes": Array [
       Object {
         "content": "((",
         "depth": 1,
-        "end": 0,
-        "start": 0,
+        "end": 3,
+        "start": 1,
         "type": "text",
       },
     ],
@@ -492,7 +492,7 @@ Array [
   Object {
     "close": ")",
     "depth": 0,
-    "end": 0,
+    "end": 4,
     "nodes": Array [
       Object {
         "content": "",
@@ -504,25 +504,25 @@ Array [
       Object {
         "close": ")",
         "depth": 1,
-        "end": 0,
+        "end": 3,
         "nodes": Array [
           Object {
             "content": "(",
             "depth": 2,
-            "end": 0,
-            "start": 0,
+            "end": 3,
+            "start": 2,
             "type": "text",
           },
         ],
         "open": "(",
-        "start": 0,
+        "start": 1,
         "type": "bracket",
       },
       Object {
         "content": "",
         "depth": 1,
-        "end": 0,
-        "start": 0,
+        "end": 4,
+        "start": 4,
         "type": "text",
       },
     ],
@@ -552,18 +552,18 @@ Array [
   Object {
     "close": ")",
     "depth": 0,
-    "end": 0,
+    "end": 10,
     "nodes": Array [
       Object {
         "content": "hit",
         "depth": 1,
-        "end": 0,
-        "start": 0,
+        "end": 10,
+        "start": 7,
         "type": "text",
       },
     ],
     "open": "(",
-    "start": 0,
+    "start": 6,
     "type": "bracket",
   },
   Object {
@@ -588,7 +588,7 @@ Array [
   Object {
     "close": ")",
     "depth": 0,
-    "end": 0,
+    "end": 17,
     "nodes": Array [
       Object {
         "content": "bb",
@@ -600,7 +600,7 @@ Array [
       Object {
         "close": ")",
         "depth": 1,
-        "end": 0,
+        "end": 14,
         "nodes": Array [
           Object {
             "content": "cc",
@@ -612,42 +612,42 @@ Array [
           Object {
             "close": ")",
             "depth": 2,
-            "end": 0,
+            "end": 11,
             "nodes": Array [
               Object {
                 "content": "dd",
                 "depth": 3,
-                "end": 0,
-                "start": 0,
+                "end": 11,
+                "start": 9,
                 "type": "text",
               },
             ],
             "open": "(",
-            "start": 0,
+            "start": 8,
             "type": "bracket",
           },
           Object {
             "content": "cc",
             "depth": 2,
-            "end": 0,
-            "start": 0,
+            "end": 14,
+            "start": 12,
             "type": "text",
           },
         ],
         "open": "(",
-        "start": 0,
+        "start": 5,
         "type": "bracket",
       },
       Object {
         "content": "bb",
         "depth": 1,
-        "end": 0,
-        "start": 0,
+        "end": 17,
+        "start": 15,
         "type": "text",
       },
     ],
     "open": "(",
-    "start": 0,
+    "start": 2,
     "type": "bracket",
   },
   Object {

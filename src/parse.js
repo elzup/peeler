@@ -32,11 +32,12 @@ function parse(text: string, options: Options): PNode[] {
     if (closes[c] !== undefined && ns.length < nestMax) {
       parent.nodes.push(makeText(p, i, parent.depth + 1, text.substring(p, i)))
       ns.push(parent)
-      ns.push(makeBracket(0, 0, parent.depth + 1, c, closes[c]))
+      ns.push(makeBracket(i, -1, parent.depth + 1, c, closes[c]))
       p = i + 1
     } else if (opens[c] === parent.open) {
       const parent2 = ns.pop()
-      parent.nodes.push(makeText(0, 0, parent.depth + 1, text.substring(p, i)))
+      parent.nodes.push(makeText(p, i, parent.depth + 1, text.substring(p, i)))
+      parent.end = i
       parent2.nodes.push(parent)
       ns.push(parent2)
       p = i + 1
