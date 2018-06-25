@@ -1,0 +1,343 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`complex: any bracket 1`] = `
+Array [
+  Object {
+    "content": "",
+    "type": "text",
+  },
+  Object {
+    "close": "]",
+    "nodes": Array [
+      Object {
+        "content": "",
+        "type": "text",
+      },
+      Object {
+        "close": ")",
+        "nodes": Array [
+          Object {
+            "content": "",
+            "type": "text",
+          },
+          Object {
+            "close": "}",
+            "nodes": Array [
+              Object {
+                "content": "",
+                "type": "text",
+              },
+            ],
+            "open": "{",
+            "type": "bracket",
+          },
+          Object {
+            "content": "",
+            "type": "text",
+          },
+        ],
+        "open": "(",
+        "type": "bracket",
+      },
+      Object {
+        "content": "",
+        "type": "text",
+      },
+    ],
+    "open": "[",
+    "type": "bracket",
+  },
+  Object {
+    "content": "",
+    "type": "text",
+  },
+]
+`;
+
+exports[`complex: empty 1`] = `
+Array [
+  Object {
+    "content": "",
+    "type": "text",
+  },
+]
+`;
+
+exports[`complex: gata gata 1`] = `
+Array [
+  Object {
+    "content": "aa",
+    "type": "text",
+  },
+  Object {
+    "close": ")",
+    "nodes": Array [
+      Object {
+        "content": "",
+        "type": "text",
+      },
+      Object {
+        "close": "}",
+        "nodes": Array [
+          Object {
+            "content": "cc",
+            "type": "text",
+          },
+        ],
+        "open": "{",
+        "type": "bracket",
+      },
+      Object {
+        "content": "bb",
+        "type": "text",
+      },
+      Object {
+        "close": "}",
+        "nodes": Array [
+          Object {
+            "content": "c2",
+            "type": "text",
+          },
+          Object {
+            "close": ")",
+            "nodes": Array [
+              Object {
+                "content": "dd",
+                "type": "text",
+              },
+            ],
+            "open": "(",
+            "type": "bracket",
+          },
+          Object {
+            "content": "c2",
+            "type": "text",
+          },
+        ],
+        "open": "{",
+        "type": "bracket",
+      },
+      Object {
+        "content": "b",
+        "type": "text",
+      },
+    ],
+    "open": "(",
+    "type": "bracket",
+  },
+  Object {
+    "content": "aa",
+    "type": "text",
+  },
+  Object {
+    "close": ")",
+    "nodes": Array [
+      Object {
+        "content": "b2",
+        "type": "text",
+      },
+    ],
+    "open": "(",
+    "type": "bracket",
+  },
+  Object {
+    "content": "aa",
+    "type": "text",
+  },
+]
+`;
+
+exports[`complex: nest side 1`] = `
+Array [
+  Object {
+    "content": "",
+    "type": "text",
+  },
+  Object {
+    "close": ")",
+    "nodes": Array [
+      Object {
+        "content": "",
+        "type": "text",
+      },
+      Object {
+        "close": "}",
+        "nodes": Array [
+          Object {
+            "content": "",
+            "type": "text",
+          },
+        ],
+        "open": "{",
+        "type": "bracket",
+      },
+      Object {
+        "content": "fuga",
+        "type": "text",
+      },
+      Object {
+        "close": "}",
+        "nodes": Array [
+          Object {
+            "content": "",
+            "type": "text",
+          },
+        ],
+        "open": "{",
+        "type": "bracket",
+      },
+      Object {
+        "content": "",
+        "type": "text",
+      },
+    ],
+    "open": "(",
+    "type": "bracket",
+  },
+  Object {
+    "content": "",
+    "type": "text",
+  },
+]
+`;
+
+exports[`complex: sub empty 1`] = `
+Array [
+  Object {
+    "content": "",
+    "type": "text",
+  },
+  Object {
+    "close": ")",
+    "nodes": Array [
+      Object {
+        "content": "",
+        "type": "text",
+      },
+    ],
+    "open": "(",
+    "type": "bracket",
+  },
+  Object {
+    "content": "",
+    "type": "text",
+  },
+]
+`;
+
+exports[`complex: sub sub empty 1`] = `
+Array [
+  Object {
+    "content": "",
+    "type": "text",
+  },
+  Object {
+    "close": ")",
+    "nodes": Array [
+      Object {
+        "content": "",
+        "type": "text",
+      },
+      Object {
+        "close": ")",
+        "nodes": Array [
+          Object {
+            "content": "",
+            "type": "text",
+          },
+        ],
+        "open": "(",
+        "type": "bracket",
+      },
+      Object {
+        "content": "",
+        "type": "text",
+      },
+    ],
+    "open": "(",
+    "type": "bracket",
+  },
+  Object {
+    "content": "",
+    "type": "text",
+  },
+]
+`;
+
+exports[`works: single 1`] = `
+Array [
+  Object {
+    "content": "before",
+    "type": "text",
+  },
+  Object {
+    "close": ")",
+    "nodes": Array [
+      Object {
+        "content": "hit",
+        "type": "text",
+      },
+    ],
+    "open": "(",
+    "type": "bracket",
+  },
+  Object {
+    "content": "after",
+    "type": "text",
+  },
+]
+`;
+
+exports[`works: three nest 1`] = `
+Array [
+  Object {
+    "content": "aa",
+    "type": "text",
+  },
+  Object {
+    "close": ")",
+    "nodes": Array [
+      Object {
+        "content": "bb",
+        "type": "text",
+      },
+      Object {
+        "close": ")",
+        "nodes": Array [
+          Object {
+            "content": "cc",
+            "type": "text",
+          },
+          Object {
+            "close": ")",
+            "nodes": Array [
+              Object {
+                "content": "dd",
+                "type": "text",
+              },
+            ],
+            "open": "(",
+            "type": "bracket",
+          },
+          Object {
+            "content": "cc",
+            "type": "text",
+          },
+        ],
+        "open": "(",
+        "type": "bracket",
+      },
+      Object {
+        "content": "bb",
+        "type": "text",
+      },
+    ],
+    "open": "(",
+    "type": "bracket",
+  },
+  Object {
+    "content": "aa",
+    "type": "text",
+  },
+]
+`;
