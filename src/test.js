@@ -49,7 +49,7 @@ test('nestMax options', () => {
   ).toMatchSnapshot('stop nest 1')
 })
 
-test('error', () => {
-  // '('
-  // 'hog{e(b}c)d'
+test('argument error', () => {
+  expect(() => m(10)).toThrowErrorMatchingSnapshot()
+  expect(() => m('hoge()', { pairs: ['a'] })).toThrowErrorMatchingSnapshot()
 })
