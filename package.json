@@ -38,7 +38,7 @@
   "keywords": ["parser", "bracket", "brace", "syntax"],
   "license": "MIT",
   "main": "dist/index.js",
-  "repository": "elzup/nicename",
+  "repository": "elzup/peeler",
   "scripts": {
     "build": "babel src --out-dir dist && npm run prepack:flow",
     "prepack:flow": "flow-copy-source src dist",

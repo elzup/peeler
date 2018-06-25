@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn test --updateSnapshot
+  /usr/local/bin/node /usr/local/bin/yarn build
 
 PATH: 
   /Users/hiro/.rbenv/shims:/Users/hiro/.rbenv/shims:/usr/local:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/local/share/git-core/contrib/diff-highlight:/Users/hiro/.mos/bin/:/usr/local/opt/qt@5.5/bin:/Users/hiro/Library/Python/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/opt/X11/bin:/Users/hiro/Library/Android/sdk//tools:/Users/hiro/Library/Android/sdk//platform-tools:/Users/hiro/go/bin:/usr/local/opt/go/libexec/bin
@@ -54,7 +54,7 @@ npm manifest:
     "keywords": ["parser", "bracket", "brace", "syntax"],
     "license": "MIT",
     "main": "dist/index.js",
-    "repository": "elzup/nicename",
+    "repository": "elzup/peeler",
     "scripts": {
       "build": "babel src --out-dir dist && npm run prepack:flow",
       "prepack:flow": "flow-copy-source src dist",
@@ -3839,7 +3839,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c jest src --updateSnapshot
+  Arguments: -c babel src --out-dir dist && npm run prepack:flow
   Directory: /Users/hiro/.ghq/github.com/elzup/peeler
   Output:
   

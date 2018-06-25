@@ -11,8 +11,7 @@ function main(text: string, options: Options): PNode[] {
     pairs: ['()', '{}', '[]'],
     nestMax: 100,
   }
-  const opt = { ...defaultOptions, ...(options || {}) }
-  console.log(opt)
+  const opt = Object.assign(defaultOptions, options || {})
   if (opt.pairs.some(v => v.length < 2)) {
     throw new TypeError(
       `Option error, pairs expected ['[]', '()'...], got ${JSON.stringify(
