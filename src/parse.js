@@ -74,7 +74,14 @@ function parse(text: string, opt: Options): PNode[] {
     const atEscape = text[i - 1] === escape
     if (atEscape) {
       ns.push(parent)
-    } else if (closes[c] !== undefined && ns.length < nestMax) {
+    } else if (closes[c] !== undefined) {
+      if (ns.length >= nestMax) {
+        throw new Error(
+          `NestErorr: over nest max limit. options: { nestMax: '${
+            opt.nestMax
+          }' }`
+        )
+      }
       addText({ text, parent, start: p, end: i, opt })
       ns.push(parent)
       ns.push(makeBracket(i, -1, parent.depth + 1, c, closes[c]))
@@ -86,12 +93,17 @@ function parse(text: string, opt: Options): PNode[] {
       parent2.nodes.push(parent)
       ns.push(parent2)
       p = i + 1
+    } else if (opens[c] !== undefined && opens[c] !== parent.open) {
+      throw new Error(`ParseErorr: 404 pair '${opens[c]}' :${i}`)
     } else {
       ns.push(parent)
       // no bracket char
     }
   }
   const parent = ns.pop()
+  if (ns.length > 0) {
+    throw new Error(`ParseErorr: 404 pair '${parent.open}' :${parent.start}`)
+  }
   addText({ text, parent, start: p, end: text.length, opt })
   return parent.nodes
 }

@@ -37,16 +37,21 @@ test('bracket options', () => {
 })
 
 test('nestMax options', () => {
-  expect(
+  expect(() =>
     m('((()))', {
       nestMax: 2,
     })
-  ).toMatchSnapshot('stop nest 2')
-  expect(
+  ).toThrowErrorMatchingSnapshot('stop nest 2')
+  expect(() =>
     m('((()))', {
       nestMax: 1,
     })
-  ).toMatchSnapshot('stop nest 1')
+  ).toThrowErrorMatchingSnapshot('stop nest 1')
+})
+
+test('bracket parse error', () => {
+  expect(() => m('hog{e(b}c)d')).toThrowErrorMatchingSnapshot('entwined')
+  expect(() => m('(')).toThrowErrorMatchingSnapshot('no finish')
 })
 
 test('argument error', () => {
