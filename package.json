@@ -14,9 +14,7 @@
         "env",
         {
           "targets": {
-            "browsers": [
-              "last 2 versions"
-            ]
+            "browsers": ["last 2 versions"]
           }
         }
       ]
@@ -36,20 +34,14 @@
   "engines": {
     "node": ">=6"
   },
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "parser",
-    "bracket",
-    "brace",
-    "syntax"
-  ],
+  "files": ["dist"],
+  "keywords": ["parser", "bracket", "brace", "syntax"],
   "license": "MIT",
   "main": "dist/index.js",
   "repository": "elzup/peeler",
   "scripts": {
     "build": "babel src --out-dir dist && npm run prepack:flow",
+    "deploy": "npm run build && yarn publish",
     "prepack:flow": "flow-copy-source src dist",
     "test": "jest src"
   }
