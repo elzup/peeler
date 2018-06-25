@@ -24,4 +24,5 @@ export type Options = {
   pairs: string[],
   nestMax: number,
   escape: string,
+  includeEmpty: boolean,
 }

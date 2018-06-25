@@ -11,6 +11,7 @@ function main(text: string, options?: Options): PNode[] {
     pairs: ['()', '{}', '[]'],
     nestMax: 100,
     escape: '\\',
+    includeEmpty: false,
   }
   const opt = Object.assign(defaultOptions, options || {})
   if (opt.pairs.some(v => v.length < 2)) {

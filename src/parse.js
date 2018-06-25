@@ -30,19 +30,44 @@ function toLib(pairs: string[]): { opens: PairLib, closes: PairLib } {
   return { opens, closes }
 }
 
-function parse(text: string, options: Options): PNode[] {
-  const { pairs, nestMax, escape } = options
-  const { opens, closes } = toLib(pairs)
-
-  const escapers = pairs
+function addText({
+  text,
+  parent,
+  start,
+  end,
+  opt,
+}: {
+  text: string,
+  parent: PNodeBracket,
+  start: number,
+  end: number,
+  opt: Options,
+}) {
+  if (start === end && !opt.includeEmpty) {
+    return
+  }
+  const escapers = opt.pairs
     .reduce((p, c) => p.concat(c.split('')), [])
-    .map(v => `${escape}${v}`)
-
-  const ns: PNodeBracket[] = [makeBracket(0, 0, -1)]
-  let p = 0
+    .map(v => `${opt.escape}${v}`)
   const delEscape = (text: string) => {
     return escapers.reduce((p, c) => p.split(c).join(c[1]), text)
   }
+  parent.nodes.push(
+    makeText(
+      start,
+      end,
+      parent.depth + 1,
+      delEscape(text.substring(start, end))
+    )
+  )
+}
+
+function parse(text: string, opt: Options): PNode[] {
+  const { pairs, nestMax, escape, includeEmpty } = opt
+  const { opens, closes } = toLib(pairs)
+
+  const ns: PNodeBracket[] = [makeBracket(0, 0, -1)]
+  let p = 0
   for (let i = 0; i < text.length; i++) {
     const parent = ns.pop()
     const c = text[i]
@@ -50,17 +75,13 @@ function parse(text: string, options: Options): PNode[] {
     if (atEscape) {
       ns.push(parent)
     } else if (closes[c] !== undefined && ns.length < nestMax) {
-      parent.nodes.push(
-        makeText(p, i, parent.depth + 1, delEscape(text.substring(p, i)))
-      )
+      addText({ text, parent, start: p, end: i, opt })
       ns.push(parent)
       ns.push(makeBracket(i, -1, parent.depth + 1, c, closes[c]))
       p = i + 1
     } else if (opens[c] === parent.open) {
       const parent2 = ns.pop()
-      parent.nodes.push(
-        makeText(p, i, parent.depth + 1, delEscape(text.substring(p, i)))
-      )
+      addText({ text, parent, start: p, end: i, opt })
       parent.end = i
       parent2.nodes.push(parent)
       ns.push(parent2)
@@ -70,8 +91,8 @@ function parse(text: string, options: Options): PNode[] {
       // no bracket char
     }
   }
-  const node = ns.pop()
-  node.nodes.push(makeText(p, text.length, 0, delEscape(text.substring(p))))
-  return node.nodes
+  const parent = ns.pop()
+  addText({ text, parent, start: p, end: text.length, opt })
+  return parent.nodes
 }
 export default parse

@@ -86,111 +86,44 @@ Array [
     "start": 1,
     "type": "bracket",
   },
-  Object {
-    "content": "",
-    "depth": 0,
-    "end": 13,
-    "start": 13,
-    "type": "text",
-  },
 ]
 `;
 
 exports[`complex: any bracket 1`] = `
 Array [
   Object {
-    "content": "",
-    "depth": 0,
-    "end": 0,
-    "start": 0,
-    "type": "text",
-  },
-  Object {
     "close": "]",
     "depth": 0,
     "end": 5,
     "nodes": Array [
-      Object {
-        "content": "",
-        "depth": 1,
-        "end": 1,
-        "start": 1,
-        "type": "text",
-      },
       Object {
         "close": ")",
         "depth": 1,
         "end": 4,
         "nodes": Array [
           Object {
-            "content": "",
-            "depth": 2,
-            "end": 2,
-            "start": 2,
-            "type": "text",
-          },
-          Object {
             "close": "}",
             "depth": 2,
             "end": 3,
-            "nodes": Array [
-              Object {
-                "content": "",
-                "depth": 3,
-                "end": 3,
-                "start": 3,
-                "type": "text",
-              },
-            ],
+            "nodes": Array [],
             "open": "{",
             "start": 2,
             "type": "bracket",
-          },
-          Object {
-            "content": "",
-            "depth": 2,
-            "end": 4,
-            "start": 4,
-            "type": "text",
           },
         ],
         "open": "(",
         "start": 1,
         "type": "bracket",
       },
-      Object {
-        "content": "",
-        "depth": 1,
-        "end": 5,
-        "start": 5,
-        "type": "text",
-      },
     ],
     "open": "[",
     "start": 0,
     "type": "bracket",
   },
-  Object {
-    "content": "",
-    "depth": 0,
-    "end": 6,
-    "start": 6,
-    "type": "text",
-  },
 ]
 `;
 
-exports[`complex: empty 1`] = `
-Array [
-  Object {
-    "content": "",
-    "depth": 0,
-    "end": 0,
-    "start": 0,
-    "type": "text",
-  },
-]
-`;
+exports[`complex: empty 1`] = `Array []`;
 
 exports[`complex: gata gata 1`] = `
 Array [
@@ -206,13 +139,6 @@ Array [
     "depth": 0,
     "end": 20,
     "nodes": Array [
-      Object {
-        "content": "",
-        "depth": 1,
-        "end": 3,
-        "start": 3,
-        "type": "text",
-      },
       Object {
         "close": "}",
         "depth": 1,
@@ -327,37 +253,15 @@ Array [
 exports[`complex: nest side 1`] = `
 Array [
   Object {
-    "content": "",
-    "depth": 0,
-    "end": 0,
-    "start": 0,
-    "type": "text",
-  },
-  Object {
     "close": ")",
     "depth": 0,
     "end": 9,
     "nodes": Array [
       Object {
-        "content": "",
-        "depth": 1,
-        "end": 1,
-        "start": 1,
-        "type": "text",
-      },
-      Object {
         "close": "}",
         "depth": 1,
         "end": 2,
-        "nodes": Array [
-          Object {
-            "content": "",
-            "depth": 2,
-            "end": 2,
-            "start": 2,
-            "type": "text",
-          },
-        ],
+        "nodes": Array [],
         "open": "{",
         "start": 1,
         "type": "bracket",
@@ -373,37 +277,15 @@ Array [
         "close": "}",
         "depth": 1,
         "end": 8,
-        "nodes": Array [
-          Object {
-            "content": "",
-            "depth": 2,
-            "end": 8,
-            "start": 8,
-            "type": "text",
-          },
-        ],
+        "nodes": Array [],
         "open": "{",
         "start": 7,
         "type": "bracket",
-      },
-      Object {
-        "content": "",
-        "depth": 1,
-        "end": 9,
-        "start": 9,
-        "type": "text",
       },
     ],
     "open": "(",
     "start": 0,
     "type": "bracket",
-  },
-  Object {
-    "content": "",
-    "depth": 0,
-    "end": 10,
-    "start": 10,
-    "type": "text",
   },
 ]
 `;
@@ -411,35 +293,13 @@ Array [
 exports[`complex: sub empty 1`] = `
 Array [
   Object {
-    "content": "",
-    "depth": 0,
-    "end": 0,
-    "start": 0,
-    "type": "text",
-  },
-  Object {
     "close": ")",
     "depth": 0,
     "end": 1,
-    "nodes": Array [
-      Object {
-        "content": "",
-        "depth": 1,
-        "end": 1,
-        "start": 1,
-        "type": "text",
-      },
-    ],
+    "nodes": Array [],
     "open": "(",
     "start": 0,
     "type": "bracket",
-  },
-  Object {
-    "content": "",
-    "depth": 0,
-    "end": 2,
-    "start": 2,
-    "type": "text",
   },
 ]
 `;
@@ -447,59 +307,23 @@ Array [
 exports[`complex: sub sub empty 1`] = `
 Array [
   Object {
-    "content": "",
-    "depth": 0,
-    "end": 0,
-    "start": 0,
-    "type": "text",
-  },
-  Object {
     "close": ")",
     "depth": 0,
     "end": 3,
     "nodes": Array [
       Object {
-        "content": "",
-        "depth": 1,
-        "end": 1,
-        "start": 1,
-        "type": "text",
-      },
-      Object {
         "close": ")",
         "depth": 1,
         "end": 2,
-        "nodes": Array [
-          Object {
-            "content": "",
-            "depth": 2,
-            "end": 2,
-            "start": 2,
-            "type": "text",
-          },
-        ],
+        "nodes": Array [],
         "open": "(",
         "start": 1,
         "type": "bracket",
-      },
-      Object {
-        "content": "",
-        "depth": 1,
-        "end": 3,
-        "start": 3,
-        "type": "text",
       },
     ],
     "open": "(",
     "start": 0,
     "type": "bracket",
-  },
-  Object {
-    "content": "",
-    "depth": 0,
-    "end": 4,
-    "start": 4,
-    "type": "text",
   },
 ]
 `;
@@ -556,13 +380,6 @@ Array [
 exports[`escape works 2`] = `
 Array [
   Object {
-    "content": "",
-    "depth": 0,
-    "end": 0,
-    "start": 0,
-    "type": "text",
-  },
-  Object {
     "close": ")",
     "depth": 0,
     "end": 15,
@@ -579,25 +396,11 @@ Array [
     "start": 0,
     "type": "bracket",
   },
-  Object {
-    "content": "",
-    "depth": 0,
-    "end": 16,
-    "start": 16,
-    "type": "text",
-  },
 ]
 `;
 
 exports[`nestMax options: stop nest 1 1`] = `
 Array [
-  Object {
-    "content": "",
-    "depth": 0,
-    "end": 0,
-    "start": 0,
-    "type": "text",
-  },
   Object {
     "close": ")",
     "depth": 0,
@@ -628,24 +431,10 @@ Array [
 exports[`nestMax options: stop nest 2 1`] = `
 Array [
   Object {
-    "content": "",
-    "depth": 0,
-    "end": 0,
-    "start": 0,
-    "type": "text",
-  },
-  Object {
     "close": ")",
     "depth": 0,
     "end": 4,
     "nodes": Array [
-      Object {
-        "content": "",
-        "depth": 1,
-        "end": 1,
-        "start": 1,
-        "type": "text",
-      },
       Object {
         "close": ")",
         "depth": 1,
@@ -662,13 +451,6 @@ Array [
         "open": "(",
         "start": 1,
         "type": "bracket",
-      },
-      Object {
-        "content": "",
-        "depth": 1,
-        "end": 4,
-        "start": 4,
-        "type": "text",
       },
     ],
     "open": "(",
