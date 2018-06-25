@@ -1,6 +1,6 @@
 // @flow
 
-import type { PNode, Options, PairLib, PNodeBracket } from './types'
+import type { PNode, Options } from './types'
 import parse from './parse'
 
 function main(text: string, options?: Options): PNode[] {
@@ -20,25 +20,7 @@ function main(text: string, options?: Options): PNode[] {
       )}`
     )
   }
-  const { opens, closes } = toLib(opt.pairs)
-
-  return parse(text, {
-    opens,
-    closes,
-    nestMax: opt.nestMax,
-    escape: opt.escape,
-  })
-}
-
-function toLib(pairs: string[]): { opens: PairLib, closes: PairLib } {
-  const opens: PairLib = {}
-  const closes: PairLib = {}
-  for (var i = 0; i < pairs.length; i++) {
-    const [open, close] = pairs[i]
-    closes[open] = close
-    opens[close] = open
-  }
-  return { opens, closes }
+  return parse(text, opt)
 }
 
 export default main

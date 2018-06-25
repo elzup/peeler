@@ -19,7 +19,6 @@ go)od by`)
 })
 
 test('escape works', () => {
-  console.log('\\'.length)
   expect(m('\\')).toMatchSnapshot()
   expect(m('(\\(OK\\)\\[GOOD\\])')).toMatchSnapshot()
 })

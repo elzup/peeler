@@ -1,6 +1,6 @@
 // @flow
 
-import type { PNode, PairLib, PNodeBracket } from './types'
+import type { PNode, PairLib, PNodeBracket, Options } from './types'
 
 const makeText = (start, end, depth, content) => ({
   type: 'text',
@@ -19,22 +19,23 @@ const makeBracket = (start, end, depth, open = '', close = '') => ({
   nodes: [],
 })
 
-type Options = {
-  opens: PairLib,
-  closes: PairLib,
-  nestMax: number,
-  escape: string,
+function toLib(pairs: string[]): { opens: PairLib, closes: PairLib } {
+  const opens: PairLib = {}
+  const closes: PairLib = {}
+  for (var i = 0; i < pairs.length; i++) {
+    const [open, close] = pairs[i]
+    closes[open] = close
+    opens[close] = open
+  }
+  return { opens, closes }
 }
 
-const vals = v =>
-  Object.keys(v).map(key => {
-    return v[key]
-  })
-
 function parse(text: string, options: Options): PNode[] {
-  const { opens, closes, nestMax, escape } = options
-  const escapers = vals(opens)
-    .concat(vals(closes))
+  const { pairs, nestMax, escape } = options
+  const { opens, closes } = toLib(pairs)
+
+  const escapers = pairs
+    .reduce((p, c) => p.concat(c.split('')), [])
     .map(v => `${escape}${v}`)
 
   const ns: PNodeBracket[] = [makeBracket(0, 0, -1)]
