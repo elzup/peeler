@@ -1,7 +1,7 @@
 {
   "name": "peeler",
   "description": "parser for only bracket.",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": {
     "name": "elzup",
     "email": "guild0105@gmail.com",
@@ -14,7 +14,9 @@
         "env",
         {
           "targets": {
-            "browsers": ["last 2 versions"]
+            "browsers": [
+              "last 2 versions"
+            ]
           }
         }
       ]
@@ -34,8 +36,15 @@
   "engines": {
     "node": ">=6"
   },
-  "files": ["dist"],
-  "keywords": ["parser", "bracket", "brace", "syntax"],
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "parser",
+    "bracket",
+    "brace",
+    "syntax"
+  ],
   "license": "MIT",
   "main": "dist/index.js",
   "repository": "elzup/peeler",
