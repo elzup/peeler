@@ -22,6 +22,19 @@ test('bracket options', () => {
   ).toMatchSnapshot('() only')
 })
 
+test('nestMax options', () => {
+  expect(
+    m('((()))', {
+      nestMax: 2,
+    })
+  ).toMatchSnapshot('stop nest 2')
+  expect(
+    m('((()))', {
+      nestMax: 1,
+    })
+  ).toMatchSnapshot('stop nest 1')
+})
+
 test('error', () => {
   // '('
   // 'hog{e(b}c)d'

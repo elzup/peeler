@@ -9,8 +9,10 @@ function main(text: string, options: Options): PNode[] {
   }
   const defaultOptions: Options = {
     pairs: ['()', '{}', '[]'],
+    nestMax: 100,
   }
   const opt = { ...defaultOptions, ...(options || {}) }
+  console.log(opt)
   if (opt.pairs.some(v => v.length < 2)) {
     throw new TypeError(
       `Option error, pairs expected ['[]', '()'...], got ${JSON.stringify(
@@ -20,7 +22,7 @@ function main(text: string, options: Options): PNode[] {
   }
   const { opens, closes } = toLib(opt.pairs)
 
-  return parse(text, { opens, closes })
+  return parse(text, { opens, closes, nestMax: opt.nestMax })
 }
 
 function toLib(pairs: string[]): { opens: PairLib, closes: PairLib } {

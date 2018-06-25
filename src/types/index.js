@@ -17,4 +17,5 @@ export type PNode = PNodeText | PNodeBracket
 export type PairLib = { [key: string]: string }
 export type Options = {
   pairs: string[],
+  nestMax: number,
 }

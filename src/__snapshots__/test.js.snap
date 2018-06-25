@@ -288,6 +288,69 @@ Array [
 ]
 `;
 
+exports[`nestMax options: stop nest 1 1`] = `
+Array [
+  Object {
+    "content": "",
+    "type": "text",
+  },
+  Object {
+    "close": ")",
+    "nodes": Array [
+      Object {
+        "content": "((",
+        "type": "text",
+      },
+    ],
+    "open": "(",
+    "type": "bracket",
+  },
+  Object {
+    "content": "))",
+    "type": "text",
+  },
+]
+`;
+
+exports[`nestMax options: stop nest 2 1`] = `
+Array [
+  Object {
+    "content": "",
+    "type": "text",
+  },
+  Object {
+    "close": ")",
+    "nodes": Array [
+      Object {
+        "content": "",
+        "type": "text",
+      },
+      Object {
+        "close": ")",
+        "nodes": Array [
+          Object {
+            "content": "(",
+            "type": "text",
+          },
+        ],
+        "open": "(",
+        "type": "bracket",
+      },
+      Object {
+        "content": "",
+        "type": "text",
+      },
+    ],
+    "open": "(",
+    "type": "bracket",
+  },
+  Object {
+    "content": ")",
+    "type": "text",
+  },
+]
+`;
+
 exports[`works: single 1`] = `
 Array [
   Object {
