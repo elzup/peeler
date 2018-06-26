@@ -1,5 +1,4 @@
 # peeler [![Build Status](https://travis-ci.org/elzup/peeler.svg?branch=master)](https://travis-ci.org/elzup/peeler)
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 > parser for only bracket.
 
@@ -160,6 +159,10 @@ peeler(`(hello(world(\\\\('ω'\\)/){[A](B)}))`).map(print)
 - )
 )
 ```
+
+## Related works
+
+* [texter](https://github.com/elzup/texter)
 
 ## License
 
