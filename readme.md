@@ -1,4 +1,5 @@
 # peeler [![Build Status](https://travis-ci.org/elzup/peeler.svg?branch=master)](https://travis-ci.org/elzup/peeler)
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 > parser for only bracket.
 
@@ -163,3 +164,15 @@ peeler(`(hello(world(\\\\('ω'\\)/){[A](B)}))`).map(print)
 ## License
 
 MIT © [elzup](https://elzup.com)
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars3.githubusercontent.com/u/2284908?v=4" width="100px;"/><br /><sub><b>elzup</b></sub>](https://elzup.com)<br />[💻](https://github.com/elzup/peeler/commits?author=elzup "Code") [⚠️](https://github.com/elzup/peeler/commits?author=elzup "Tests") |
+| :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
