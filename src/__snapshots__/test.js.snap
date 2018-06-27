@@ -113,9 +113,9 @@ Array [
 ]
 `;
 
-exports[`bracket parse error: entwined 1`] = `"ParseErorr: 404 pair '{' :7"`;
+exports[`bracket parse error: entwined 1`] = `"ParseError: 404 pair '{' :7"`;
 
-exports[`bracket parse error: no finish 1`] = `"ParseErorr: 404 pair '(' :0"`;
+exports[`bracket parse error: no finish 1`] = `"ParseError: 404 pair '(' :0"`;
 
 exports[`complex: any bracket 1`] = `
 Array [
@@ -491,9 +491,9 @@ Array [
 ]
 `;
 
-exports[`nestMax options: stop nest 1 1`] = `"NestErorr: over nest max limit. options: { nestMax: '1' }"`;
+exports[`nestMax options: stop nest 1 1`] = `"NestError: over nest max limit. options: { nestMax: '1' }"`;
 
-exports[`nestMax options: stop nest 2 1`] = `"NestErorr: over nest max limit. options: { nestMax: '2' }"`;
+exports[`nestMax options: stop nest 2 1`] = `"NestError: over nest max limit. options: { nestMax: '2' }"`;
 
 exports[`works: single 1`] = `
 Array [

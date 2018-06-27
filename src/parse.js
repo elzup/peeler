@@ -65,7 +65,7 @@ function parse(text: string, opt: Options): PNode[] {
     } else if (closes[c] !== undefined) {
       if (ns.length >= nestMax) {
         throw new Error(
-          `NestErorr: over nest max limit. options: { nestMax: '${
+          `NestError: over nest max limit. options: { nestMax: '${
             opt.nestMax
           }' }`
         )
@@ -88,7 +88,7 @@ function parse(text: string, opt: Options): PNode[] {
       ns.push(parent2)
       p = i + 1
     } else if (opens[c] !== undefined && opens[c] !== parent.open) {
-      throw new Error(`ParseErorr: 404 pair '${opens[c]}' :${i}`)
+      throw new Error(`ParseError: 404 pair '${opens[c]}' :${i}`)
     } else {
       ns.push(parent)
       // no bracket char
@@ -97,7 +97,7 @@ function parse(text: string, opt: Options): PNode[] {
   const parent = ns.pop()
   if (ns.length > 0) {
     throw new Error(
-      `ParseErorr: 404 pair '${parent.open}' :${parent.pos.start}`
+      `ParseError: 404 pair '${parent.open}' :${parent.pos.start}`
     )
   }
   addText({ text, parent, start: p, end: text.length, opt })
