@@ -17,6 +17,8 @@ Array [
   },
   Object {
     "close": ")",
+    "content": "(bbb{})",
+    "innerContent": "bbb{}",
     "nodeType": "bracket",
     "nodes": Array [
       Object {
@@ -61,6 +63,8 @@ Array [
   },
   Object {
     "close": "o",
+    "content": "OshinO kyoko",
+    "innerContent": "shinO kyok",
     "nodeType": "bracket",
     "nodes": Array [
       Object {
@@ -74,6 +78,8 @@ Array [
       },
       Object {
         "close": "o",
+        "content": "O kyo",
+        "innerContent": " ky",
         "nodeType": "bracket",
         "nodes": Array [
           Object {
@@ -121,14 +127,20 @@ exports[`complex: any bracket 1`] = `
 Array [
   Object {
     "close": "]",
+    "content": "[({})]",
+    "innerContent": "({})",
     "nodeType": "bracket",
     "nodes": Array [
       Object {
         "close": ")",
+        "content": "({})",
+        "innerContent": "{}",
         "nodeType": "bracket",
         "nodes": Array [
           Object {
             "close": "}",
+            "content": "{}",
+            "innerContent": "",
             "nodeType": "bracket",
             "nodes": Array [],
             "open": "{",
@@ -172,10 +184,14 @@ Array [
   },
   Object {
     "close": ")",
+    "content": "({cc}bb{c2(dd)c2}b)",
+    "innerContent": "{cc}bb{c2(dd)c2}b",
     "nodeType": "bracket",
     "nodes": Array [
       Object {
         "close": "}",
+        "content": "{cc}",
+        "innerContent": "cc",
         "nodeType": "bracket",
         "nodes": Array [
           Object {
@@ -206,6 +222,8 @@ Array [
       },
       Object {
         "close": "}",
+        "content": "{c2(dd)c2}",
+        "innerContent": "c2(dd)c2",
         "nodeType": "bracket",
         "nodes": Array [
           Object {
@@ -219,6 +237,8 @@ Array [
           },
           Object {
             "close": ")",
+            "content": "(dd)",
+            "innerContent": "dd",
             "nodeType": "bracket",
             "nodes": Array [
               Object {
@@ -283,6 +303,8 @@ Array [
   },
   Object {
     "close": ")",
+    "content": "(b2)",
+    "innerContent": "b2",
     "nodeType": "bracket",
     "nodes": Array [
       Object {
@@ -318,10 +340,14 @@ exports[`complex: nest side 1`] = `
 Array [
   Object {
     "close": ")",
+    "content": "({}fuga{})",
+    "innerContent": "{}fuga{}",
     "nodeType": "bracket",
     "nodes": Array [
       Object {
         "close": "}",
+        "content": "{}",
+        "innerContent": "",
         "nodeType": "bracket",
         "nodes": Array [],
         "open": "{",
@@ -342,6 +368,8 @@ Array [
       },
       Object {
         "close": "}",
+        "content": "{}",
+        "innerContent": "",
         "nodeType": "bracket",
         "nodes": Array [],
         "open": "{",
@@ -366,6 +394,8 @@ exports[`complex: sub empty 1`] = `
 Array [
   Object {
     "close": ")",
+    "content": "()",
+    "innerContent": "",
     "nodeType": "bracket",
     "nodes": Array [],
     "open": "(",
@@ -382,10 +412,14 @@ exports[`complex: sub sub empty 1`] = `
 Array [
   Object {
     "close": ")",
+    "content": "(())",
+    "innerContent": "()",
     "nodeType": "bracket",
     "nodes": Array [
       Object {
         "close": ")",
+        "content": "()",
+        "innerContent": "",
         "nodeType": "bracket",
         "nodes": Array [],
         "open": "(",
@@ -419,6 +453,10 @@ Array [
   },
   Object {
     "close": ")",
+    "content": "(lo
+go)",
+    "innerContent": "lo
+go",
     "nodeType": "bracket",
     "nodes": Array [
       Object {
@@ -469,6 +507,8 @@ exports[`escape works 2`] = `
 Array [
   Object {
     "close": ")",
+    "content": "(\\\\(OK\\\\)\\\\[GOOD\\\\])",
+    "innerContent": "\\\\(OK\\\\)\\\\[GOOD\\\\]",
     "nodeType": "bracket",
     "nodes": Array [
       Object {
@@ -508,6 +548,8 @@ Array [
   },
   Object {
     "close": ")",
+    "content": "(hit)",
+    "innerContent": "hit",
     "nodeType": "bracket",
     "nodes": Array [
       Object {
@@ -552,6 +594,8 @@ Array [
   },
   Object {
     "close": ")",
+    "content": "(bb(cc(dd)cc)bb)",
+    "innerContent": "bb(cc(dd)cc)bb",
     "nodeType": "bracket",
     "nodes": Array [
       Object {
@@ -565,6 +609,8 @@ Array [
       },
       Object {
         "close": ")",
+        "content": "(cc(dd)cc)",
+        "innerContent": "cc(dd)cc",
         "nodeType": "bracket",
         "nodes": Array [
           Object {
@@ -578,6 +624,8 @@ Array [
           },
           Object {
             "close": ")",
+            "content": "(dd)",
+            "innerContent": "dd",
             "nodeType": "bracket",
             "nodes": Array [
               Object {

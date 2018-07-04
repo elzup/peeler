@@ -7,11 +7,11 @@ export type Pos = {
 }
 export type NodeBase = {
   pos: Pos,
+  content: string,
 }
 
 export type PNodeText = {
   nodeType: 'text',
-  content: string,
 } & NodeBase
 
 export type PNodeBracket = {
@@ -19,6 +19,7 @@ export type PNodeBracket = {
   open: string,
   close: string,
   nodes: PNode[],
+  innerContent: string,
 } & NodeBase
 
 export type PNode = PNodeText | PNodeBracket
