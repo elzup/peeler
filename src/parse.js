@@ -21,10 +21,7 @@ function closeBracket(
     open,
     close,
     nodes,
-    pos: {
-      ...pos,
-      end: endPos,
-    },
+    pos: Object.assign({}, pos, { end: endPos }),
     content: text.substring(pos.start, endPos + 1),
     innerContent: text.substring(pos.start + 1, endPos),
   }
