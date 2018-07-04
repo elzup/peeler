@@ -1,22 +1,34 @@
 // @flow
 
-import type { PNode, PairLib, PNodeBracket, Options, Pos } from './types'
+import type {
+  PNode,
+  PairLib,
+  PNodeBracket,
+  PNodeBracketOpen,
+  PNodeRoot,
+  PNodeBuild,
+  Options,
+  Pos,
+} from './types'
 
-const makeBracket = (
-  pos: Pos,
-  content: string,
-  innerContent: string,
-  open: string = '--',
-  close: string = '--'
-) => ({
-  nodeType: 'bracket',
-  pos,
-  content,
-  innerContent,
-  open,
-  close,
-  nodes: [],
-})
+function closeBracket(
+  { open, close, pos, nodes }: PNodeBracketOpen,
+  endPos: number,
+  text: string
+): PNodeBracket {
+  return {
+    nodeType: 'bracket',
+    open,
+    close,
+    nodes,
+    pos: {
+      ...pos,
+      end: endPos,
+    },
+    content: text.substring(pos.start, endPos + 1),
+    innerContent: text.substring(pos.start + 1, endPos),
+  }
+}
 
 function toLib(pairs: string[]): { opens: PairLib, closes: PairLib } {
   const opens: PairLib = {}
@@ -31,7 +43,7 @@ function toLib(pairs: string[]): { opens: PairLib, closes: PairLib } {
 
 function addText(p: {
   text: string,
-  parent: PNodeBracket,
+  parent: PNodeBuild,
   start: number,
   end: number,
   opt: Options,
@@ -62,8 +74,13 @@ function parse(text: string, opt: Options): PNode[] {
   const { pairs, nestMax, escape, includeEmpty } = opt
   const { opens, closes } = toLib(pairs)
 
-  const ns: PNodeBracket[] = [
-    makeBracket({ start: 0, end: 0, depth: -1 }, '(TODO)', 'TODO'),
+  const ns: PNodeBuild[] = [
+    {
+      nodeType: 'root',
+      nodes: [],
+      pos: { start: 0, end: 0, depth: -1 },
+      content: text,
+    },
   ]
   let p = 0
   for (let i = 0; i < text.length; i++) {
@@ -73,6 +90,7 @@ function parse(text: string, opt: Options): PNode[] {
     if (atEscape) {
       ns.push(parent)
     } else if (closes[c] !== undefined) {
+      // Hit close bracket
       if (ns.length >= nestMax) {
         throw new Error(
           `NestError: over nest max limit. options: { nestMax: '${
@@ -82,34 +100,32 @@ function parse(text: string, opt: Options): PNode[] {
       }
       addText({ text, parent, start: p, end: i, opt })
       ns.push(parent)
-      ns.push(
-        makeBracket(
-          { start: i, end: -1, depth: parent.pos.depth + 1 },
-          '(TODO)',
-          'TODO',
-          c,
-          closes[c]
-        )
-      )
+      ns.push({
+        nodeType: 'bracket-open',
+        pos: { start: i, depth: parent.pos.depth + 1 },
+        open: c,
+        close: closes[c],
+        nodes: [],
+      })
       p = i + 1
-    } else if (opens[c] === parent.open) {
+    } else if (opens[c] !== undefined) {
+      // Hit close bracket
+      if (parent.nodeType === 'root' || opens[c] !== parent.open) {
+        throw new Error(`ParseError: 404 pair '${opens[c]}' :${i}`)
+      }
       const parent2 = ns.pop()
       addText({ text, parent, start: p, end: i, opt })
-      parent.pos.end = i
-      parent.content = text.substring(parent.pos.start, i + 1)
-      parent.innerContent = text.substring(parent.pos.start + 1, i)
-      parent2.nodes.push(parent)
+      const closedNode = closeBracket(parent, i, text)
+      parent2.nodes.push(closedNode)
       ns.push(parent2)
       p = i + 1
-    } else if (opens[c] !== undefined && opens[c] !== parent.open) {
-      throw new Error(`ParseError: 404 pair '${opens[c]}' :${i}`)
     } else {
-      ns.push(parent)
       // no bracket char
+      ns.push(parent)
     }
   }
   const parent = ns.pop()
-  if (ns.length > 0) {
+  if (parent.nodeType !== 'root') {
     throw new Error(
       `ParseError: 404 pair '${parent.open}' :${parent.pos.start}`
     )
