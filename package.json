@@ -2,56 +2,45 @@
   "name": "peeler",
   "description": "parser for only bracket.",
   "version": "1.2.0",
-  "author": {
-    "name": "elzup",
-    "email": "guild0105@gmail.com",
-    "url": "elzup.com"
-  },
-  "babel": {
-    "presets": [
-      "flow",
-      [
-        "env",
-        {
-          "targets": {
-            "browsers": [
-              "last 2 versions"
-            ]
-          }
-        }
-      ]
-    ]
-  },
+  "author": "elzup",
+  "repository": "elzup/peeler",
   "dependencies": {},
   "devDependencies": {
-    "babel-cli": "6.26.0",
-    "babel-core": "6.26.3",
-    "babel-jest": "23.6.0",
-    "babel-preset-env": "1.7.0",
-    "babel-preset-flow": "6.23.0",
-    "flow-bin": "0.109.0",
-    "flow-copy-source": "2.0.8",
-    "jest": "23.6.0"
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.12",
+    "eslint": "^6.5.1",
+    "eslint-config-nzap": "^1.2.3",
+    "jest": "23.6.0",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.1.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "files": [
     "dist"
   ],
   "keywords": [
-    "parser",
-    "bracket",
     "brace",
+    "bracket",
+    "parser",
     "syntax"
   ],
   "license": "MIT",
+  "lint-staged": {
+    "scripts/**/*.ts": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "main": "dist/index.js",
-  "repository": "elzup/peeler",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "babel src --out-dir dist && npm run prepack:flow",
-    "deploy": "npm run build && yarn publish",
-    "prepack:flow": "flow-copy-source src dist",
-    "test": "jest src"
+    "build": "tsc --build tsconfig.build.json",
+    "deploy": "yarn build && yarn publish",
+    "lint": "eslint --ext .ts src",
+    "test": "yarn lint && jest"
   }
 }
