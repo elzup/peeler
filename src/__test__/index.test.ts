@@ -1,4 +1,4 @@
-import m from './'
+import m from '../index'
 
 test('works', () => {
   expect(m('before(hit)after')).toMatchSnapshot('single')
