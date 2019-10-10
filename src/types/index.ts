@@ -1,44 +1,42 @@
-// @flow
-
 export type Pos = {
-  start: number,
-  end: number,
-  depth: number,
+  start: number
+  end: number
+  depth: number
 }
 export type NodeBase = {
-  pos: Pos,
-  content: string,
+  pos: Pos
+  content: string
 }
 
 export type NodeBaseParent = NodeBase & {
-  nodes: PNode[],
+  nodes: PNode[]
 }
 
 export type PNodeText = {
-  nodeType: 'text',
+  nodeType: 'text'
 } & NodeBase
 
 export type PNodeBracket = {
-  nodeType: 'bracket',
-  open: string,
-  close: string,
-  innerContent: string,
+  nodeType: 'bracket'
+  open: string
+  close: string
+  innerContent: string
 } & NodeBaseParent
 
 export type PNodeRoot = {
-  nodeType: 'root',
+  nodeType: 'root'
 } & NodeBaseParent
 
 export type PosOpen = {
-  start: number,
-  depth: number,
+  start: number
+  depth: number
 }
 export type PNodeBracketOpen = {
-  nodeType: 'bracket-open',
-  open: string,
-  close: string,
-  pos: PosOpen,
-  nodes: PNode[],
+  nodeType: 'bracket-open'
+  open: string
+  close: string
+  pos: PosOpen
+  nodes: PNode[]
 }
 
 export type PNodeBuild = PNodeRoot | PNodeBracketOpen
@@ -46,8 +44,8 @@ export type PNode = PNodeText | PNodeBracket
 
 export type PairLib = { [key: string]: string }
 export type Options = {
-  pairs: string[],
-  nestMax: number,
-  escape: string,
-  includeEmpty: boolean,
+  pairs: string[]
+  nestMax: number
+  escape: string
+  includeEmpty: boolean
 }

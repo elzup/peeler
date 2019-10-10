@@ -1,4 +1,4 @@
-import m from '.'
+import m from './'
 
 test('works', () => {
   expect(m('before(hit)after')).toMatchSnapshot('single')
@@ -37,24 +37,31 @@ test('bracket options', () => {
 })
 
 test('nestMax options', () => {
-  expect(() =>
-    m('((()))', {
-      nestMax: 2,
-    })
+  expect(
+    () =>
+      m('((()))', {
+        nestMax: 2,
+      })
+    // @ts-ignore: Test
   ).toThrowErrorMatchingSnapshot('stop nest 2')
-  expect(() =>
-    m('((()))', {
-      nestMax: 1,
-    })
+  expect(
+    () =>
+      m('((()))', {
+        nestMax: 1,
+      })
+    // @ts-ignore: Test
   ).toThrowErrorMatchingSnapshot('stop nest 1')
 })
 
 test('bracket parse error', () => {
+  // @ts-ignore:
   expect(() => m('hog{e(b}c)d')).toThrowErrorMatchingSnapshot('entwined')
+  // @ts-ignore:
   expect(() => m('(')).toThrowErrorMatchingSnapshot('no finish')
 })
 
 test('argument error', () => {
+  // @ts-ignore:
   expect(() => m(10)).toThrowErrorMatchingSnapshot()
   expect(() => m('hoge()', { pairs: ['a'] })).toThrowErrorMatchingSnapshot()
 })

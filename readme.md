@@ -1,4 +1,4 @@
-# peeler [![Build Status](https://travis-ci.org/elzup/peeler.svg?branch=master)](https://travis-ci.org/elzup/peeler)
+# peeler [![Build Status](https://travis-ci.org/elzup/peeler.svg?branch=master)](https://travis-ci.org/elzup/peeler) [![npm version](https://badge.fury.io/js/elzup.svg)](https://badge.fury.io/js/elzup)
 
 > parser for only bracket.
 

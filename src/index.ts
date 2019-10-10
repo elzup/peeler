@@ -1,9 +1,7 @@
-// @flow
+import { PNode, Options } from './types'
+import { parse } from './parse'
 
-import type { PNode, Options } from './types'
-import parse from './parse'
-
-function main(text: string, options?: Options): PNode[] {
+function main(text: string, options?: Partial<Options>): PNode[] {
   if (typeof text !== 'string') {
     throw new TypeError(`Expected a string, got ${typeof text}`)
   }
@@ -14,6 +12,7 @@ function main(text: string, options?: Options): PNode[] {
     includeEmpty: false,
   }
   const opt = Object.assign(defaultOptions, options || {})
+
   if (opt.pairs.some(v => v.length < 2)) {
     throw new TypeError(
       `Option error, pairs expected ['[]', '()'...], got ${JSON.stringify(

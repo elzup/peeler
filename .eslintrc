@@ -1,0 +1,7 @@
+{
+  "extends": ["nzap", "nzap/typescript", "nzap/jest"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/ban-types": 0
+  }
+}

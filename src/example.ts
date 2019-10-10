@@ -1,10 +1,9 @@
-// @flow
+import peeler from './'
+import { PNode } from './types'
 
-import peeler from '.'
-import type { PNode } from './types'
-
-const print = (node: PNode) => {
+const print = (node: PNode): void => {
   const nest = '- '.repeat(node.pos.depth)
+
   if (node.nodeType === 'text') {
     console.log(nest + node.content)
     return
@@ -15,4 +14,4 @@ const print = (node: PNode) => {
   }
 }
 
-peeler(`(hello(world(\\\\('ω'\\)/){[A](B)}))`).map(print)
+peeler(`(hello(world(\\\\('ω'\\)/){[A](B)}))`).forEach(print)
