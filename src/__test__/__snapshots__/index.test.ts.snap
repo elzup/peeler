@@ -1,9 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`argument error 1`] = `"Expected a string, got number"`;
-
-exports[`argument error 2`] = `"Option error, pairs expected ['[]', '()'...], got [\\"a\\"]"`;
-
 exports[`bracket options: () only 1`] = `
 Array [
   Object {
@@ -118,10 +114,6 @@ Array [
   },
 ]
 `;
-
-exports[`bracket parse error: entwined 1`] = `"ParseError: 404 pair '{' :7"`;
-
-exports[`bracket parse error: no finish 1`] = `"ParseError: 404 pair '(' :0"`;
 
 exports[`complex: any bracket 1`] = `
 Array [
@@ -530,10 +522,6 @@ Array [
   },
 ]
 `;
-
-exports[`nestMax options: stop nest 1 1`] = `"NestError: over nest max limit. options: { nestMax: '1' }"`;
-
-exports[`nestMax options: stop nest 2 1`] = `"NestError: over nest max limit. options: { nestMax: '2' }"`;
 
 exports[`works: single 1`] = `
 Array [
