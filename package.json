@@ -12,7 +12,7 @@
     "eslint-config-nzap": "1.4.6",
     "jest": "25.1.0",
     "prettier": "1.19.1",
-    "ts-jest": "24.2.0",
+    "ts-jest": "25.1.0",
     "ts-node": "8.6.2",
     "typescript": "3.7.5"
   },
