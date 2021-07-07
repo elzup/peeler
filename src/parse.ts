@@ -48,7 +48,7 @@ function addText(p: {
   }
   const escapers = opt.pairs
     .reduce<string[]>((p, c) => p.concat(c.split('')), [])
-    .map(v => `${opt.escape}${v}`)
+    .map((v) => `${opt.escape}${v}`)
   const delEscape = (text: string): string =>
     escapers.reduce((p, c) => p.split(c).join(c[1]), text)
 

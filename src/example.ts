@@ -1,4 +1,4 @@
-import peeler from './'
+import peeler from '.'
 import { PNode } from './types'
 
 const print = (node: PNode): void => {

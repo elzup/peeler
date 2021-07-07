@@ -13,7 +13,7 @@ function main(text: string, options?: Partial<Options>): PNode[] {
   }
   const opt = Object.assign(defaultOptions, options || {})
 
-  if (opt.pairs.some(v => v.length < 2)) {
+  if (opt.pairs.some((v) => v.length < 2)) {
     throw new TypeError(
       `Option error, pairs expected ['[]', '()'...], got ${JSON.stringify(
         opt.pairs
