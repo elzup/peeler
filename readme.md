@@ -1,5 +1,7 @@
 # peeler [![npm version](https://badge.fury.io/js/elzup.svg)](https://badge.fury.io/js/elzup) ![GitHub Actions](https://github.com/elzup/peeler/workflows/Node%20CI/badge.svg)
 
+[![NPM](https://nodei.co/npm/peeler.png)](https://nodei.co/npm/peeler/)
+
 > parser for only bracket.
 
 ## Install
@@ -120,8 +122,6 @@ const defaultOptions: Options = {
 ## more example
 
 ```js
-// @flow
-
 import peeler from '.'
 import type { PNode } from './types'
 
@@ -162,7 +162,7 @@ peeler(`(hello(world(\\\\('ω'\\)/){[A](B)}))`).map(print)
 
 ## Related works
 
-* [texter](https://github.com/elzup/texter)
+- [texter](https://github.com/elzup/texter)
 
 ## License
 
@@ -176,6 +176,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
 <!-- prettier-ignore -->
 | [<img src="https://avatars3.githubusercontent.com/u/2284908?v=4" width="100px;"/><br /><sub><b>elzup</b></sub>](https://elzup.com)<br />[💻](https://github.com/elzup/peeler/commits?author=elzup "Code") [⚠️](https://github.com/elzup/peeler/commits?author=elzup "Tests") |
 | :---: |
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
