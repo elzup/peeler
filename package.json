@@ -6,7 +6,7 @@
   "repository": "elzup/peeler",
   "dependencies": {},
   "devDependencies": {
-    "@types/jest": "27.0.1",
+    "@types/jest": "27.0.2",
     "@types/node": "16.0.0",
     "eslint": "7.32.0",
     "eslint-config-nzap": "4.4.0",
