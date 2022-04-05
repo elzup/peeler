@@ -68,7 +68,7 @@ function addText(p: {
 const safePop = <T>(arr: T[]): T => {
   const item = arr.pop()
 
-  if (!item) {
+  if (item === undefined) {
     throw new Error(`LogicError:`)
   }
   return item
