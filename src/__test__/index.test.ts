@@ -19,8 +19,8 @@ go)od by`)
 })
 
 test('escape works', () => {
-  expect(m('\\')).toMatchSnapshot()
-  expect(m('(\\(OK\\)\\[GOOD\\])')).toMatchSnapshot()
+  expect(m('\\')).toMatchSnapshot('escape char')
+  expect(m('(\\(OK\\)\\[GOOD\\])')).toMatchSnapshot('escape bracket cahr')
 })
 
 test('bracket options', () => {

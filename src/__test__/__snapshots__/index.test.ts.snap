@@ -481,21 +481,7 @@ go",
 ]
 `;
 
-exports[`escape works 1`] = `
-Array [
-  Object {
-    "content": "\\\\",
-    "nodeType": "text",
-    "pos": Object {
-      "depth": 0,
-      "end": 1,
-      "start": 0,
-    },
-  },
-]
-`;
-
-exports[`escape works 2`] = `
+exports[`escape works: escape bracket cahr 1`] = `
 Array [
   Object {
     "close": ")",
@@ -517,6 +503,20 @@ Array [
     "pos": Object {
       "depth": 0,
       "end": 15,
+      "start": 0,
+    },
+  },
+]
+`;
+
+exports[`escape works: escape char 1`] = `
+Array [
+  Object {
+    "content": "\\\\",
+    "nodeType": "text",
+    "pos": Object {
+      "depth": 0,
+      "end": 1,
       "start": 0,
     },
   },
