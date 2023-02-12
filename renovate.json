@@ -1,4 +1,3 @@
 {
-  "extends": ["@elzup"],
-  "major": { "automerge": true }
+  "extends": ["@elzup/renovate-config:nodep"]
 }
