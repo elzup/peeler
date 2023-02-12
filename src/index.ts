@@ -10,6 +10,7 @@ function main(text: string, options?: Partial<Options>): PNode[] {
     nestMax: 100,
     escape: '\\',
     includeEmpty: false,
+    quoteChars: ``,
   }
   const opt = Object.assign(defaultOptions, options || {})
 

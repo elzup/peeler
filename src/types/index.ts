@@ -43,9 +43,11 @@ export type PNodeBuild = PNodeRoot | PNodeBracketOpen
 export type PNode = PNodeText | PNodeBracket
 
 export type PairLib = { [key: string]: string }
+export type QuoteLib = { [key: string]: string }
 export type Options = {
   pairs: string[]
   nestMax: number
   escape: string
   includeEmpty: boolean
+  quoteChars: string
 }

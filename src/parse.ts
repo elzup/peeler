@@ -5,6 +5,7 @@ import {
   PNodeBracketOpen,
   PNodeBuild,
   Options,
+  QuoteLib,
 } from './types'
 
 function closeBracket(
@@ -21,6 +22,15 @@ function closeBracket(
     content: text.substring(pos.start, endPos + 1),
     innerContent: text.substring(pos.start + 1, endPos),
   }
+}
+
+function toLibQuote(quoteChars: string) {
+  const quotes = new Map<string, true>()
+
+  quoteChars.split('').forEach((c) => {
+    quotes.set(c, true)
+  })
+  return { quotes }
 }
 
 function toLib(pairs: string[]): { opens: PairLib; closes: PairLib } {
@@ -77,6 +87,7 @@ const safePop = <T>(arr: T[]): T => {
 export function parse(text: string, opt: Options): PNode[] {
   const { pairs, nestMax, escape } = opt
   const { opens, closes } = toLib(pairs)
+  const { quotes } = toLibQuote(opt.quoteChars)
 
   const ns: PNodeBuild[] = [
     {
@@ -87,6 +98,7 @@ export function parse(text: string, opt: Options): PNode[] {
     },
   ]
   let p = 0
+  let insideQuote = false
 
   for (let i = 0; i < text.length; i++) {
     const parent = safePop(ns)
@@ -94,6 +106,9 @@ export function parse(text: string, opt: Options): PNode[] {
     const atEscape = text[i - 1] === escape
 
     if (atEscape) {
+      ns.push(parent)
+    } else if (quotes.has(c)) {
+      insideQuote = !insideQuote
       ns.push(parent)
     } else if (closes[c] !== undefined) {
       // Hit close bracket

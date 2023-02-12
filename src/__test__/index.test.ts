@@ -53,6 +53,16 @@ test('nestMax options', () => {
   )
 })
 
+test('quoting', () => {
+  expect(() =>
+    m(`("('"_'a')`, {
+      quoteChars: `'"`,
+    })
+  ).toMatchSnapshot('quoting')
+
+  // expect(() => m('(")')).toThrowErrorMatchingInlineSnapshot()
+})
+
 test('bracket parse error', () => {
   expect(() => m('hog{e(b}c)d')).toThrowErrorMatchingInlineSnapshot(
     `"ParseError: 404 pair '{' :7"`
