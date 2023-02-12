@@ -78,6 +78,7 @@ const safePop = <T>(arr: T[]): T => {
   const item = arr.pop()
 
   if (item === undefined) {
+    /* istanbul ignore next */
     throw new Error(`LogicError:`)
   }
   return item
