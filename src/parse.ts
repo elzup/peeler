@@ -5,7 +5,6 @@ import {
   PNodeBracketOpen,
   PNodeBuild,
   Options,
-  QuoteLib,
 } from './types'
 
 function closeBracket(
@@ -98,7 +97,8 @@ export function parse(text: string, opt: Options): PNode[] {
     },
   ]
   let p = 0
-  let insideQuote = false
+  let insideQuote: string | null = null
+  let quoteStart = 0
 
   for (let i = 0; i < text.length; i++) {
     const parent = safePop(ns)
@@ -107,8 +107,12 @@ export function parse(text: string, opt: Options): PNode[] {
 
     if (atEscape) {
       ns.push(parent)
+    } else if (insideQuote !== null) {
+      if (insideQuote === c) insideQuote = null
+      ns.push(parent)
     } else if (quotes.has(c)) {
-      insideQuote = !insideQuote
+      insideQuote = c
+      quoteStart = i
       ns.push(parent)
     } else if (closes[c] !== undefined) {
       // Hit close bracket
@@ -144,6 +148,9 @@ export function parse(text: string, opt: Options): PNode[] {
       // no bracket char
       ns.push(parent)
     }
+  }
+  if (insideQuote !== null) {
+    throw new Error(`ParseError: 404 quote close ${insideQuote} :${quoteStart}`)
   }
   const parent = safePop(ns)
 

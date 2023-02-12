@@ -53,14 +53,93 @@ test('nestMax options', () => {
   )
 })
 
-test('quoting', () => {
-  expect(() =>
-    m(`("('"_'a')`, {
-      quoteChars: `'"`,
-    })
-  ).toMatchSnapshot('quoting')
+describe('quoting', () => {
+  it('inside quote escape', () => {
+    expect(
+      m(
+        `( " ignored (() " )
+      `,
+        {
+          quoteChars: `"`,
+        }
+      )
+    ).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "close": ")",
+          "content": "( \\" ignored (() \\" )",
+          "innerContent": " \\" ignored (() \\" ",
+          "nodeType": "bracket",
+          "nodes": Array [
+            Object {
+              "content": " \\" ignored (() \\" ",
+              "nodeType": "text",
+              "pos": Object {
+                "depth": 1,
+                "end": 18,
+                "start": 1,
+              },
+            },
+          ],
+          "open": "(",
+          "pos": Object {
+            "depth": 0,
+            "end": 18,
+            "start": 0,
+          },
+        },
+        Object {
+          "content": "
+            ",
+          "nodeType": "text",
+          "pos": Object {
+            "depth": 0,
+            "end": 26,
+            "start": 19,
+          },
+        },
+      ]
+    `)
+  })
 
-  // expect(() => m('(")')).toThrowErrorMatchingInlineSnapshot()
+  it('another quote is not close quote', () => {
+    expect(
+      m(`( " '( " )`, {
+        quoteChars: `"'`,
+      })
+    ).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "close": ")",
+          "content": "( \\" '( \\" )",
+          "innerContent": " \\" '( \\" ",
+          "nodeType": "bracket",
+          "nodes": Array [
+            Object {
+              "content": " \\" '( \\" ",
+              "nodeType": "text",
+              "pos": Object {
+                "depth": 1,
+                "end": 9,
+                "start": 1,
+              },
+            },
+          ],
+          "open": "(",
+          "pos": Object {
+            "depth": 0,
+            "end": 9,
+            "start": 0,
+          },
+        },
+      ]
+    `)
+  })
+  it('quote parse error', () => {
+    expect(() =>
+      m('( "(" ) ")', { quoteChars: `"` })
+    ).toThrowErrorMatchingInlineSnapshot(`"ParseError: 404 quote close \\" :8"`)
+  })
 })
 
 test('bracket parse error', () => {

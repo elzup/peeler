@@ -523,8 +523,6 @@ Array [
 ]
 `;
 
-exports[`quoting: quoting 1`] = `[Function]`;
-
 exports[`works: single 1`] = `
 Array [
   Object {
