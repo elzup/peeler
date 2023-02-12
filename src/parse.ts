@@ -23,11 +23,11 @@ function closeBracket(
   }
 }
 
-function toLibQuote(quoteChars: string) {
-  const quotes = new Map<string, true>()
+function toLibQuote(quoteOpts: string[]) {
+  const quotes = new Map<string, string>()
 
-  quoteChars.split('').forEach((c) => {
-    quotes.set(c, true)
+  quoteOpts.forEach(([start, end = start]) => {
+    quotes.set(start, end)
   })
   return { quotes }
 }
@@ -86,7 +86,7 @@ const safePop = <T>(arr: T[]): T => {
 export function parse(text: string, opt: Options): PNode[] {
   const { pairs, nestMax, escape } = opt
   const { opens, closes } = toLib(pairs)
-  const { quotes } = toLibQuote(opt.quoteChars)
+  const { quotes } = toLibQuote(opt.quotes)
 
   const ns: PNodeBuild[] = [
     {
@@ -111,7 +111,8 @@ export function parse(text: string, opt: Options): PNode[] {
       if (insideQuote === c) insideQuote = null
       ns.push(parent)
     } else if (quotes.has(c)) {
-      insideQuote = c
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      insideQuote = quotes.get(c)!
       quoteStart = i
       ns.push(parent)
     } else if (closes[c] !== undefined) {

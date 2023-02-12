@@ -60,7 +60,7 @@ describe('quoting', () => {
         `( " ignored (() " )
       `,
         {
-          quoteChars: `"`,
+          quotes: [`"`],
         }
       )
     ).toMatchInlineSnapshot(`
@@ -105,7 +105,7 @@ describe('quoting', () => {
   it('another quote is not close quote', () => {
     expect(
       m(`( " '( " )`, {
-        quoteChars: `"'`,
+        quotes: [`"`, `'`],
       })
     ).toMatchInlineSnapshot(`
       Array [
@@ -135,9 +135,43 @@ describe('quoting', () => {
       ]
     `)
   })
+  it('quote pair', () => {
+    expect(
+      m(`( [escape [[( ] )`, {
+        quotes: [`[]`],
+      })
+    ).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "close": ")",
+          "content": "( [escape [[( ] )",
+          "innerContent": " [escape [[( ] ",
+          "nodeType": "bracket",
+          "nodes": Array [
+            Object {
+              "content": " [escape [[( ] ",
+              "nodeType": "text",
+              "pos": Object {
+                "depth": 1,
+                "end": 16,
+                "start": 1,
+              },
+            },
+          ],
+          "open": "(",
+          "pos": Object {
+            "depth": 0,
+            "end": 16,
+            "start": 0,
+          },
+        },
+      ]
+    `)
+  })
+
   it('quote parse error', () => {
     expect(() =>
-      m('( "(" ) ")', { quoteChars: `"` })
+      m('( "(" ) ")', { quotes: [`"`] })
     ).toThrowErrorMatchingInlineSnapshot(`"ParseError: 404 quote close \\" :8"`)
   })
 })

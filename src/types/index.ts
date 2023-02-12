@@ -49,5 +49,5 @@ export type Options = {
   nestMax: number
   escape: string
   includeEmpty: boolean
-  quoteChars: string
+  quotes: string[]
 }
