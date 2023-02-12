@@ -57,21 +57,11 @@ $ yarn add peeler
   { nodeType: 'text',
     pos: { start: 12, end: 14, depth: 0 },
     content: 'aa' } ]
-
-> peeler('[(__)]', { pairs: ['[]', '<>'] }) // skip '(' bracket
-[ { nodeType: 'bracket',
-    pos: { start: 0, end: 5, depth: 0 },
-    open: '[',
-    close: ']',
-    nodes:
-     [ { nodeType: 'text',
-         pos: { start: 1, end: 5, depth: 1 },
-         content: '(__)' } ] } ]
 ```
 
 ## API
 
-### peeler(name)
+### peeler(name, [option])
 
 #### input
 
@@ -108,6 +98,43 @@ type PNodeBracket = {
 }
 ```
 
+### pair option
+
+default `['()', '{}', '[]']`
+
+```js
+> peeler('[(__)]', { pairs: ['[]', '<>'] }) // skip '(' bracket
+[ { nodeType: 'bracket',
+    pos: { start: 0, end: 5, depth: 0 },
+    open: '[',
+    close: ']',
+    nodes:
+     [ { nodeType: 'text',
+         pos: { start: 1, end: 5, depth: 1 },
+         content: '(__)' } ] } ]
+```
+
+### quotes option
+
+default `[]`
+
+```js
+> peeler(`( < escape [[( > " ' \\" " )`, {
+    quotes: [ `"`, `'`, `<>`, /* pair enable */ ],
+  })
+
+[ { nodeType: 'bracket',
+    open: '(',
+    close: ')',
+    nodes:
+      [ { nodeType: 'text',
+          pos: { start: 1, end: 26, depth: 1 },
+          content: ` < escape [[( > " ' \\" " ` } ],
+    pos: { start: 0, depth: 0, end: 26 },
+    content: `( < escape [[( > " ' \\" " )`,
+    innerContent: ` < escape [[( > " ' \\" " ` } ]
+```
+
 ### default Options
 
 ```
@@ -116,6 +143,7 @@ const defaultOptions: Options = {
   nestMax: 100,
   escape: '\\',
   includeEmpty: false,
+  quotes: [],
 }
 ```
 

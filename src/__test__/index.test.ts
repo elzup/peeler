@@ -137,23 +137,27 @@ describe('quoting', () => {
   })
   it('quote pair', () => {
     expect(
-      m(`( [escape [[( ] )`, {
-        quotes: [`[]`],
+      m(`( < escape [[( > " ' \\" " )`, {
+        quotes: [
+          `"`,
+          `'`,
+          `<>`, // pair enable
+        ],
       })
     ).toMatchInlineSnapshot(`
       [
         {
           "close": ")",
-          "content": "( [escape [[( ] )",
-          "innerContent": " [escape [[( ] ",
+          "content": "( < escape [[( > " ' \\" " )",
+          "innerContent": " < escape [[( > " ' \\" " ",
           "nodeType": "bracket",
           "nodes": [
             {
-              "content": " [escape [[( ] ",
+              "content": " < escape [[( > " ' \\" " ",
               "nodeType": "text",
               "pos": {
                 "depth": 1,
-                "end": 16,
+                "end": 26,
                 "start": 1,
               },
             },
@@ -161,7 +165,7 @@ describe('quoting', () => {
           "open": "(",
           "pos": {
             "depth": 0,
-            "end": 16,
+            "end": 26,
             "start": 0,
           },
         },
