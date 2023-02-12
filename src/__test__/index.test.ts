@@ -64,17 +64,17 @@ describe('quoting', () => {
         }
       )
     ).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "close": ")",
-          "content": "( \\" ignored (() \\" )",
-          "innerContent": " \\" ignored (() \\" ",
+          "content": "( " ignored (() " )",
+          "innerContent": " " ignored (() " ",
           "nodeType": "bracket",
-          "nodes": Array [
-            Object {
-              "content": " \\" ignored (() \\" ",
+          "nodes": [
+            {
+              "content": " " ignored (() " ",
               "nodeType": "text",
-              "pos": Object {
+              "pos": {
                 "depth": 1,
                 "end": 18,
                 "start": 1,
@@ -82,17 +82,17 @@ describe('quoting', () => {
             },
           ],
           "open": "(",
-          "pos": Object {
+          "pos": {
             "depth": 0,
             "end": 18,
             "start": 0,
           },
         },
-        Object {
+        {
           "content": "
             ",
           "nodeType": "text",
-          "pos": Object {
+          "pos": {
             "depth": 0,
             "end": 26,
             "start": 19,
@@ -108,17 +108,17 @@ describe('quoting', () => {
         quotes: [`"`, `'`],
       })
     ).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "close": ")",
-          "content": "( \\" '( \\" )",
-          "innerContent": " \\" '( \\" ",
+          "content": "( " '( " )",
+          "innerContent": " " '( " ",
           "nodeType": "bracket",
-          "nodes": Array [
-            Object {
-              "content": " \\" '( \\" ",
+          "nodes": [
+            {
+              "content": " " '( " ",
               "nodeType": "text",
-              "pos": Object {
+              "pos": {
                 "depth": 1,
                 "end": 9,
                 "start": 1,
@@ -126,7 +126,7 @@ describe('quoting', () => {
             },
           ],
           "open": "(",
-          "pos": Object {
+          "pos": {
             "depth": 0,
             "end": 9,
             "start": 0,
@@ -141,17 +141,17 @@ describe('quoting', () => {
         quotes: [`[]`],
       })
     ).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "close": ")",
           "content": "( [escape [[( ] )",
           "innerContent": " [escape [[( ] ",
           "nodeType": "bracket",
-          "nodes": Array [
-            Object {
+          "nodes": [
+            {
               "content": " [escape [[( ] ",
               "nodeType": "text",
-              "pos": Object {
+              "pos": {
                 "depth": 1,
                 "end": 16,
                 "start": 1,
@@ -159,7 +159,7 @@ describe('quoting', () => {
             },
           ],
           "open": "(",
-          "pos": Object {
+          "pos": {
             "depth": 0,
             "end": 16,
             "start": 0,
@@ -172,7 +172,7 @@ describe('quoting', () => {
   it('quote parse error', () => {
     expect(() =>
       m('( "(" ) ")', { quotes: [`"`] })
-    ).toThrowErrorMatchingInlineSnapshot(`"ParseError: 404 quote close \\" :8"`)
+    ).toThrowErrorMatchingInlineSnapshot(`"ParseError: 404 quote close " :8"`)
   })
 })
 
@@ -193,6 +193,6 @@ test('argument error', () => {
   expect(() =>
     m('hoge()', { pairs: ['a'] })
   ).toThrowErrorMatchingInlineSnapshot(
-    `"Option error, pairs expected ['[]', '()'...], got [\\"a\\"]"`
+    `"Option error, pairs expected ['[]', '()'...], got ["a"]"`
   )
 })

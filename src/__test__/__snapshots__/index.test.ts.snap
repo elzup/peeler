@@ -1,26 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`bracket options: () only 1`] = `
-Array [
-  Object {
+[
+  {
     "content": "aaa",
     "nodeType": "text",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 3,
       "start": 0,
     },
   },
-  Object {
+  {
     "close": ")",
     "content": "(bbb{})",
     "innerContent": "bbb{}",
     "nodeType": "bracket",
-    "nodes": Array [
-      Object {
+    "nodes": [
+      {
         "content": "bbb{}",
         "nodeType": "text",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 9,
           "start": 4,
@@ -28,16 +28,16 @@ Array [
       },
     ],
     "open": "(",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 9,
       "start": 3,
     },
   },
-  Object {
+  {
     "content": "ccc[ddd]",
     "nodeType": "text",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 18,
       "start": 10,
@@ -47,41 +47,41 @@ Array [
 `;
 
 exports[`bracket options: rare option 1`] = `
-Array [
-  Object {
+[
+  {
     "content": "t",
     "nodeType": "text",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 1,
       "start": 0,
     },
   },
-  Object {
+  {
     "close": "o",
     "content": "OshinO kyoko",
     "innerContent": "shinO kyok",
     "nodeType": "bracket",
-    "nodes": Array [
-      Object {
+    "nodes": [
+      {
         "content": "shin",
         "nodeType": "text",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 6,
           "start": 2,
         },
       },
-      Object {
+      {
         "close": "o",
         "content": "O kyo",
         "innerContent": " ky",
         "nodeType": "bracket",
-        "nodes": Array [
-          Object {
+        "nodes": [
+          {
             "content": " ky",
             "nodeType": "text",
-            "pos": Object {
+            "pos": {
               "depth": 2,
               "end": 10,
               "start": 7,
@@ -89,16 +89,16 @@ Array [
           },
         ],
         "open": "O",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 10,
           "start": 6,
         },
       },
-      Object {
+      {
         "content": "k",
         "nodeType": "text",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 12,
           "start": 11,
@@ -106,7 +106,7 @@ Array [
       },
     ],
     "open": "O",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 12,
       "start": 1,
@@ -116,27 +116,27 @@ Array [
 `;
 
 exports[`complex: any bracket 1`] = `
-Array [
-  Object {
+[
+  {
     "close": "]",
     "content": "[({})]",
     "innerContent": "({})",
     "nodeType": "bracket",
-    "nodes": Array [
-      Object {
+    "nodes": [
+      {
         "close": ")",
         "content": "({})",
         "innerContent": "{}",
         "nodeType": "bracket",
-        "nodes": Array [
-          Object {
+        "nodes": [
+          {
             "close": "}",
             "content": "{}",
             "innerContent": "",
             "nodeType": "bracket",
-            "nodes": Array [],
+            "nodes": [],
             "open": "{",
-            "pos": Object {
+            "pos": {
               "depth": 2,
               "end": 3,
               "start": 2,
@@ -144,7 +144,7 @@ Array [
           },
         ],
         "open": "(",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 4,
           "start": 1,
@@ -152,7 +152,7 @@ Array [
       },
     ],
     "open": "[",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 5,
       "start": 0,
@@ -161,35 +161,35 @@ Array [
 ]
 `;
 
-exports[`complex: empty 1`] = `Array []`;
+exports[`complex: empty 1`] = `[]`;
 
 exports[`complex: gata gata 1`] = `
-Array [
-  Object {
+[
+  {
     "content": "aa",
     "nodeType": "text",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 2,
       "start": 0,
     },
   },
-  Object {
+  {
     "close": ")",
     "content": "({cc}bb{c2(dd)c2}b)",
     "innerContent": "{cc}bb{c2(dd)c2}b",
     "nodeType": "bracket",
-    "nodes": Array [
-      Object {
+    "nodes": [
+      {
         "close": "}",
         "content": "{cc}",
         "innerContent": "cc",
         "nodeType": "bracket",
-        "nodes": Array [
-          Object {
+        "nodes": [
+          {
             "content": "cc",
             "nodeType": "text",
-            "pos": Object {
+            "pos": {
               "depth": 2,
               "end": 6,
               "start": 4,
@@ -197,46 +197,46 @@ Array [
           },
         ],
         "open": "{",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 6,
           "start": 3,
         },
       },
-      Object {
+      {
         "content": "bb",
         "nodeType": "text",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 9,
           "start": 7,
         },
       },
-      Object {
+      {
         "close": "}",
         "content": "{c2(dd)c2}",
         "innerContent": "c2(dd)c2",
         "nodeType": "bracket",
-        "nodes": Array [
-          Object {
+        "nodes": [
+          {
             "content": "c2",
             "nodeType": "text",
-            "pos": Object {
+            "pos": {
               "depth": 2,
               "end": 12,
               "start": 10,
             },
           },
-          Object {
+          {
             "close": ")",
             "content": "(dd)",
             "innerContent": "dd",
             "nodeType": "bracket",
-            "nodes": Array [
-              Object {
+            "nodes": [
+              {
                 "content": "dd",
                 "nodeType": "text",
-                "pos": Object {
+                "pos": {
                   "depth": 3,
                   "end": 15,
                   "start": 13,
@@ -244,16 +244,16 @@ Array [
               },
             ],
             "open": "(",
-            "pos": Object {
+            "pos": {
               "depth": 2,
               "end": 15,
               "start": 12,
             },
           },
-          Object {
+          {
             "content": "c2",
             "nodeType": "text",
-            "pos": Object {
+            "pos": {
               "depth": 2,
               "end": 18,
               "start": 16,
@@ -261,16 +261,16 @@ Array [
           },
         ],
         "open": "{",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 18,
           "start": 9,
         },
       },
-      Object {
+      {
         "content": "b",
         "nodeType": "text",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 20,
           "start": 19,
@@ -278,31 +278,31 @@ Array [
       },
     ],
     "open": "(",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 20,
       "start": 2,
     },
   },
-  Object {
+  {
     "content": "aa",
     "nodeType": "text",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 23,
       "start": 21,
     },
   },
-  Object {
+  {
     "close": ")",
     "content": "(b2)",
     "innerContent": "b2",
     "nodeType": "bracket",
-    "nodes": Array [
-      Object {
+    "nodes": [
+      {
         "content": "b2",
         "nodeType": "text",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 26,
           "start": 24,
@@ -310,16 +310,16 @@ Array [
       },
     ],
     "open": "(",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 26,
       "start": 23,
     },
   },
-  Object {
+  {
     "content": "aa",
     "nodeType": "text",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 29,
       "start": 27,
@@ -329,43 +329,43 @@ Array [
 `;
 
 exports[`complex: nest side 1`] = `
-Array [
-  Object {
+[
+  {
     "close": ")",
     "content": "({}fuga{})",
     "innerContent": "{}fuga{}",
     "nodeType": "bracket",
-    "nodes": Array [
-      Object {
+    "nodes": [
+      {
         "close": "}",
         "content": "{}",
         "innerContent": "",
         "nodeType": "bracket",
-        "nodes": Array [],
+        "nodes": [],
         "open": "{",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 2,
           "start": 1,
         },
       },
-      Object {
+      {
         "content": "fuga",
         "nodeType": "text",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 7,
           "start": 3,
         },
       },
-      Object {
+      {
         "close": "}",
         "content": "{}",
         "innerContent": "",
         "nodeType": "bracket",
-        "nodes": Array [],
+        "nodes": [],
         "open": "{",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 8,
           "start": 7,
@@ -373,7 +373,7 @@ Array [
       },
     ],
     "open": "(",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 9,
       "start": 0,
@@ -383,15 +383,15 @@ Array [
 `;
 
 exports[`complex: sub empty 1`] = `
-Array [
-  Object {
+[
+  {
     "close": ")",
     "content": "()",
     "innerContent": "",
     "nodeType": "bracket",
-    "nodes": Array [],
+    "nodes": [],
     "open": "(",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 1,
       "start": 0,
@@ -401,21 +401,21 @@ Array [
 `;
 
 exports[`complex: sub sub empty 1`] = `
-Array [
-  Object {
+[
+  {
     "close": ")",
     "content": "(())",
     "innerContent": "()",
     "nodeType": "bracket",
-    "nodes": Array [
-      Object {
+    "nodes": [
+      {
         "close": ")",
         "content": "()",
         "innerContent": "",
         "nodeType": "bracket",
-        "nodes": Array [],
+        "nodes": [],
         "open": "(",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 2,
           "start": 1,
@@ -423,7 +423,7 @@ Array [
       },
     ],
     "open": "(",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 3,
       "start": 0,
@@ -433,29 +433,29 @@ Array [
 `;
 
 exports[`complex: with newline 1`] = `
-Array [
-  Object {
+[
+  {
     "content": "hel",
     "nodeType": "text",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 3,
       "start": 0,
     },
   },
-  Object {
+  {
     "close": ")",
     "content": "(lo
 go)",
     "innerContent": "lo
 go",
     "nodeType": "bracket",
-    "nodes": Array [
-      Object {
+    "nodes": [
+      {
         "content": "lo
 go",
         "nodeType": "text",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 9,
           "start": 4,
@@ -463,16 +463,16 @@ go",
       },
     ],
     "open": "(",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 9,
       "start": 3,
     },
   },
-  Object {
+  {
     "content": "od by",
     "nodeType": "text",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 15,
       "start": 10,
@@ -482,17 +482,17 @@ go",
 `;
 
 exports[`escape works: escape bracket cahr 1`] = `
-Array [
-  Object {
+[
+  {
     "close": ")",
-    "content": "(\\\\(OK\\\\)\\\\[GOOD\\\\])",
-    "innerContent": "\\\\(OK\\\\)\\\\[GOOD\\\\]",
+    "content": "(\\(OK\\)\\[GOOD\\])",
+    "innerContent": "\\(OK\\)\\[GOOD\\]",
     "nodeType": "bracket",
-    "nodes": Array [
-      Object {
+    "nodes": [
+      {
         "content": "(OK)[GOOD]",
         "nodeType": "text",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 15,
           "start": 1,
@@ -500,7 +500,7 @@ Array [
       },
     ],
     "open": "(",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 15,
       "start": 0,
@@ -510,11 +510,11 @@ Array [
 `;
 
 exports[`escape works: escape char 1`] = `
-Array [
-  Object {
-    "content": "\\\\",
+[
+  {
+    "content": "\\",
     "nodeType": "text",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 1,
       "start": 0,
@@ -524,26 +524,26 @@ Array [
 `;
 
 exports[`works: single 1`] = `
-Array [
-  Object {
+[
+  {
     "content": "before",
     "nodeType": "text",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 6,
       "start": 0,
     },
   },
-  Object {
+  {
     "close": ")",
     "content": "(hit)",
     "innerContent": "hit",
     "nodeType": "bracket",
-    "nodes": Array [
-      Object {
+    "nodes": [
+      {
         "content": "hit",
         "nodeType": "text",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 10,
           "start": 7,
@@ -551,16 +551,16 @@ Array [
       },
     ],
     "open": "(",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 10,
       "start": 6,
     },
   },
-  Object {
+  {
     "content": "after",
     "nodeType": "text",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 16,
       "start": 11,
@@ -570,56 +570,56 @@ Array [
 `;
 
 exports[`works: three nest 1`] = `
-Array [
-  Object {
+[
+  {
     "content": "aa",
     "nodeType": "text",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 2,
       "start": 0,
     },
   },
-  Object {
+  {
     "close": ")",
     "content": "(bb(cc(dd)cc)bb)",
     "innerContent": "bb(cc(dd)cc)bb",
     "nodeType": "bracket",
-    "nodes": Array [
-      Object {
+    "nodes": [
+      {
         "content": "bb",
         "nodeType": "text",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 5,
           "start": 3,
         },
       },
-      Object {
+      {
         "close": ")",
         "content": "(cc(dd)cc)",
         "innerContent": "cc(dd)cc",
         "nodeType": "bracket",
-        "nodes": Array [
-          Object {
+        "nodes": [
+          {
             "content": "cc",
             "nodeType": "text",
-            "pos": Object {
+            "pos": {
               "depth": 2,
               "end": 8,
               "start": 6,
             },
           },
-          Object {
+          {
             "close": ")",
             "content": "(dd)",
             "innerContent": "dd",
             "nodeType": "bracket",
-            "nodes": Array [
-              Object {
+            "nodes": [
+              {
                 "content": "dd",
                 "nodeType": "text",
-                "pos": Object {
+                "pos": {
                   "depth": 3,
                   "end": 11,
                   "start": 9,
@@ -627,16 +627,16 @@ Array [
               },
             ],
             "open": "(",
-            "pos": Object {
+            "pos": {
               "depth": 2,
               "end": 11,
               "start": 8,
             },
           },
-          Object {
+          {
             "content": "cc",
             "nodeType": "text",
-            "pos": Object {
+            "pos": {
               "depth": 2,
               "end": 14,
               "start": 12,
@@ -644,16 +644,16 @@ Array [
           },
         ],
         "open": "(",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 14,
           "start": 5,
         },
       },
-      Object {
+      {
         "content": "bb",
         "nodeType": "text",
-        "pos": Object {
+        "pos": {
           "depth": 1,
           "end": 17,
           "start": 15,
@@ -661,16 +661,16 @@ Array [
       },
     ],
     "open": "(",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 17,
       "start": 2,
     },
   },
-  Object {
+  {
     "content": "aa",
     "nodeType": "text",
-    "pos": Object {
+    "pos": {
       "depth": 0,
       "end": 20,
       "start": 18,
