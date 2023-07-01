@@ -1445,16 +1445,16 @@ escape-string-regexp@^4.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
-eslint-config-nzap@^6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-nzap/-/eslint-config-nzap-6.2.0.tgz#a33f33f6860a50e320934e60ae0de67476885454"
-  integrity sha512-NTPH0ZlxhY+4Z/DGuxsKdR7Kw1a41Y3vXbONUxd7uX027BY30OL9MQ8/YXnlomibs79HXvNxmnrYGWwnCZnDFA==
+eslint-config-nzap@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-nzap/-/eslint-config-nzap-7.0.0.tgz#a40cb56d59ad635b071c9c9b4aaa0ca1f92a0d25"
+  integrity sha512-gTW1qk2I4KfNdYEKvRlrnzC5tGH1CGW/2ZIEA3CO3v9fAR2/qSMmVPW30PKfgKRJq9yluw98B6iy7nCROxcO3w==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^5.40.0"
     "@typescript-eslint/parser" "^5.40.0"
     eslint-config-prettier "^8.5.0"
     eslint-plugin-import "^2.26.0"
-    eslint-plugin-jest "^26.4.6"
+    eslint-plugin-jest "^27.1.1"
     eslint-plugin-prettier "^4.0.0"
     eslint-plugin-react "^7.31.10"
     eslint-plugin-react-hooks "^4.4.0"
@@ -1501,10 +1501,10 @@ eslint-plugin-import@^2.26.0:
     semver "^6.3.0"
     tsconfig-paths "^3.14.1"
 
-eslint-plugin-jest@^26.4.6:
-  version "26.9.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-26.9.0.tgz#7931c31000b1c19e57dbfb71bbf71b817d1bf949"
-  integrity sha512-TWJxWGp1J628gxh2KhaH1H1paEdgE2J61BBF1I59c6xWeL5+D1BzMxGDN/nXAfX+aSkR5u80K+XhskK6Gwq9ng==
+eslint-plugin-jest@^27.1.1:
+  version "27.2.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-27.2.2.tgz#be4ded5f91905d9ec89aa8968d39c71f3b072c0c"
+  integrity sha512-euzbp06F934Z7UDl5ZUaRPLAc9MKjh0rMPERrHT7UhlCEwgb25kBj37TvMgWeHZVkR5I9CayswrpoaqZU1RImw==
   dependencies:
     "@typescript-eslint/utils" "^5.10.0"
 
