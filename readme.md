@@ -35,7 +35,7 @@ peeler('before(hit)after')
     content: 'after' } ]
 ```
 
-```
+```js
 peeler('aa(bb{cc}bb)aa')
 [ { nodeType: 'text',
     pos: { start: 0, end: 2, depth: 0 },
