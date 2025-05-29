@@ -14,8 +14,11 @@ $ yarn add peeler
 ## Usage
 
 ```js
-> import peeler from 'peeler'
-> peeler('before(hit)after')
+import peeler from 'peeler'
+```
+
+```js
+peeler('before(hit)after')
 [ { nodeType: 'text',
     pos: { start: 0, end: 6, depth: 0 },
     content: 'before' },
@@ -30,8 +33,10 @@ $ yarn add peeler
   { nodeType: 'text',
     pos: { start: 11, end: 16, depth: 0 },
     content: 'after' } ]
+```
 
-> peeler('aa(bb{cc}bb)aa')
+```
+peeler('aa(bb{cc}bb)aa')
 [ { nodeType: 'text',
     pos: { start: 0, end: 2, depth: 0 },
     content: 'aa' },
