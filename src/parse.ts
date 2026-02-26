@@ -17,77 +17,62 @@ function closeBracket(
     open,
     close,
     nodes,
-    pos: Object.assign({}, pos, { end: endPos }),
+    pos: { ...pos, end: endPos },
     content: text.substring(pos.start, endPos + 1),
     innerContent: text.substring(pos.start + 1, endPos),
   }
 }
 
-function toLibQuote(quoteOpts: string[]) {
+function buildQuoteMap(quoteOpts: string[]): Map<string, string> {
   const quotes = new Map<string, string>()
-
-  quoteOpts.forEach(([start, end = start]) => {
+  for (const [start, end = start] of quoteOpts) {
     quotes.set(start, end)
-  })
-  return { quotes }
+  }
+  return quotes
 }
 
-function toLib(pairs: string[]): { opens: PairLib; closes: PairLib } {
+function buildPairMaps(pairs: string[]): { opens: PairLib; closes: PairLib } {
   const opens: PairLib = {}
   const closes: PairLib = {}
-
-  pairs.forEach(([open, close]) => {
+  for (const [open, close] of pairs) {
     closes[open] = close
     opens[close] = open
-  })
+  }
   return { opens, closes }
 }
 
-function addText(p: {
-  text: string
-  parent: PNodeBuild
-  start: number
-  end: number
-  opt: Options
-}): void {
-  const { text, parent, start, end, opt } = p
-
-  if (start === end && !opt.includeEmpty) {
-    return
-  }
-  const escapers = opt.pairs
+function buildEscapeReplacer(
+  pairs: string[],
+  escape: string
+): (text: string) => string {
+  const escapers = pairs
     .reduce<string[]>((p, c) => p.concat(c.split('')), [])
-    .map((v) => `${opt.escape}${v}`)
-  const delEscape = (text: string): string =>
+    .map((v) => `${escape}${v}`)
+  return (text: string) =>
     escapers.reduce((p, c) => p.split(c).join(c[1]), text)
-
-  const depth = parent.pos.depth + 1
-
-  parent.nodes.push({
-    nodeType: 'text',
-    pos: {
-      start,
-      end,
-      depth,
-    },
-    content: delEscape(text.substring(start, end)),
-  })
 }
 
-const safePop = <T>(arr: T[]): T => {
-  const item = arr.pop()
-
-  if (item === undefined) {
-    /* istanbul ignore next */
-    throw new Error(`LogicError:`)
-  }
-  return item
+function pushText(
+  text: string,
+  parent: PNodeBuild,
+  start: number,
+  end: number,
+  removeEscapes: (text: string) => string,
+  includeEmpty: boolean
+): void {
+  if (start === end && !includeEmpty) return
+  parent.nodes.push({
+    nodeType: 'text',
+    pos: { start, end, depth: parent.pos.depth + 1 },
+    content: removeEscapes(text.substring(start, end)),
+  })
 }
 
 export function parse(text: string, opt: Options): PNode[] {
   const { pairs, nestMax, escape } = opt
-  const { opens, closes } = toLib(pairs)
-  const { quotes } = toLibQuote(opt.quotes)
+  const { opens, closes } = buildPairMaps(pairs)
+  const quotes = buildQuoteMap(opt.quotes)
+  const removeEscapes = buildEscapeReplacer(pairs, escape)
 
   const ns: PNodeBuild[] = [
     {
@@ -102,65 +87,64 @@ export function parse(text: string, opt: Options): PNode[] {
   let quoteStart = 0
 
   for (let i = 0; i < text.length; i++) {
-    const parent = safePop(ns)
     const c = text[i]
-    const atEscape = text[i - 1] === escape
 
-    if (atEscape) {
-      ns.push(parent)
-    } else if (insideQuote !== null) {
+    if (text[i - 1] === escape) continue
+
+    if (insideQuote !== null) {
       if (insideQuote === c) insideQuote = null
-      ns.push(parent)
-    } else if (quotes.has(c)) {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      continue
+    }
+
+    if (quotes.has(c)) {
       insideQuote = quotes.get(c)!
       quoteStart = i
-      ns.push(parent)
-    } else if (closes[c] !== undefined) {
-      // Hit close bracket
-      if (ns.length >= nestMax) {
+      continue
+    }
+
+    const top = ns[ns.length - 1]
+
+    if (closes[c] !== undefined) {
+      // Open bracket
+      if (ns.length > nestMax) {
         throw new Error(
-          `NestError: over nest max limit. options: { nestMax: '${opt.nestMax}' }`
+          `NestError: over nest max limit. options: { nestMax: '${nestMax}' }`
         )
       }
-      addText({ text, parent, start: p, end: i, opt })
-      ns.push(parent)
+      pushText(text, top, p, i, removeEscapes, opt.includeEmpty)
       ns.push({
         nodeType: 'bracket-open',
-        pos: { start: i, depth: parent.pos.depth + 1 },
+        pos: { start: i, depth: top.pos.depth + 1 },
         open: c,
         close: closes[c],
         nodes: [],
       })
       p = i + 1
-    } else if (opens[c] !== undefined) {
-      // Hit close bracket
-      if (parent.nodeType === 'root' || opens[c] !== parent.open) {
+      continue
+    }
+
+    if (opens[c] !== undefined) {
+      // Close bracket
+      if (top.nodeType === 'root' || opens[c] !== top.open) {
         throw new Error(`ParseError: 404 pair '${opens[c]}' :${i}`)
       }
-      const parent2 = safePop(ns)
-
-      addText({ text, parent, start: p, end: i, opt })
-      const closedNode = closeBracket(parent, i, text)
-
-      parent2.nodes.push(closedNode)
-      ns.push(parent2)
+      pushText(text, top, p, i, removeEscapes, opt.includeEmpty)
+      ns.pop()
+      ns[ns.length - 1].nodes.push(closeBracket(top as PNodeBracketOpen, i, text))
       p = i + 1
-    } else {
-      // no bracket char
-      ns.push(parent)
     }
   }
+
   if (insideQuote !== null) {
     throw new Error(`ParseError: 404 quote close ${insideQuote} :${quoteStart}`)
   }
-  const parent = safePop(ns)
 
-  if (parent.nodeType !== 'root') {
+  const root = ns[ns.length - 1]
+  if (root.nodeType !== 'root') {
     throw new Error(
-      `ParseError: 404 pair '${parent.open}' :${parent.pos.start}`
+      `ParseError: 404 pair '${(root as PNodeBracketOpen).open}' :${root.pos.start}`
     )
   }
-  addText({ text, parent, start: p, end: text.length, opt })
-  return parent.nodes
+  pushText(text, root, p, text.length, removeEscapes, opt.includeEmpty)
+  return root.nodes
 }
