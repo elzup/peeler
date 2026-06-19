@@ -1,7 +1,7 @@
 {
   "name": "peeler",
   "description": "parser for only bracket.",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "author": "elzup",
   "repository": "elzup/peeler",
   "dependencies": {},
@@ -17,7 +17,9 @@
   },
   "packageManager": "pnpm@10.26.2",
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild"]
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   },
   "engines": {
     "node": ">=18"
