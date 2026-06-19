@@ -1,12 +1,12 @@
-import {
-  PNode,
+import type {
+  FlatNode,
+  FlatParseResult,
+  Options,
   PairLib,
+  PNode,
   PNodeBracket,
   PNodeBracketOpen,
   PNodeBuild,
-  Options,
-  FlatNode,
-  FlatParseResult,
 } from './types'
 
 function closeBracket(
@@ -114,7 +114,6 @@ export function parse(text: string, opt: Options): PNode[] {
       if (insideQuote === c) insideQuote = null
       ns.push(parent)
     } else if (quotes.has(c)) {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       insideQuote = quotes.get(c)!
       quoteStart = i
       ns.push(parent)
@@ -236,7 +235,6 @@ export function parseFlat(text: string, opt: Options): FlatParseResult {
       if (insideQuote === c) insideQuote = null
       ns.push(parent)
     } else if (quotes.has(c)) {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       insideQuote = quotes.get(c)!
       quoteStart = i
       ns.push(parent)

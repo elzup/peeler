@@ -190,7 +190,7 @@ test('bracket parse error', () => {
 })
 
 test('argument error', () => {
-  // @ts-ignore: argument test
+  // @ts-expect-error: argument test
   expect(() => m(10)).toThrowErrorMatchingInlineSnapshot(
     `"Expected a string, got number"`
   )

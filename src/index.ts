@@ -1,16 +1,16 @@
-import { PNode, Options, FlatParseResult } from './types'
 import { parse, parseFlat } from './parse'
+import type { FlatParseResult, Options, PNode } from './types'
 
 export type {
-  Pos,
-  PNode,
-  PNodeText,
-  PNodeBracket,
-  Options,
   FlatNode,
-  FlatNodeText,
   FlatNodeBracket,
+  FlatNodeText,
   FlatParseResult,
+  Options,
+  PNode,
+  PNodeBracket,
+  PNodeText,
+  Pos,
 } from './types'
 
 function main(text: string, options?: Partial<Options>): PNode[] {
