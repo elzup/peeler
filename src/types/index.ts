@@ -51,3 +51,30 @@ export type Options = {
   includeEmpty: boolean
   quotes: string[]
 }
+
+// Flat/Normalized types
+export type FlatNodeBase = {
+  id: number
+  parentId: number | null
+  pos: Pos
+  content: string
+}
+
+export type FlatNodeText = FlatNodeBase & {
+  nodeType: 'text'
+}
+
+export type FlatNodeBracket = FlatNodeBase & {
+  nodeType: 'bracket'
+  open: string
+  close: string
+  innerContent: string
+  childIds: number[]
+}
+
+export type FlatNode = FlatNodeText | FlatNodeBracket
+
+export type FlatParseResult = {
+  nodes: FlatNode[]
+  rootIds: number[]
+}

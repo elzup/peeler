@@ -1,4 +1,4 @@
-import m from '../index'
+import m, { peelerFlat } from '../index'
 
 test('works', () => {
   expect(m('before(hit)after')).toMatchSnapshot('single')
@@ -190,7 +190,7 @@ test('bracket parse error', () => {
 })
 
 test('argument error', () => {
-  // @ts-ignore: argument test
+  // @ts-expect-error: argument test
   expect(() => m(10)).toThrowErrorMatchingInlineSnapshot(
     `"Expected a string, got number"`
   )
@@ -199,4 +199,184 @@ test('argument error', () => {
   ).toThrowErrorMatchingInlineSnapshot(
     `"Option error, pairs expected ['[]', '()'...], got ["a"]"`
   )
+})
+
+describe('peelerFlat', () => {
+  it('simple', () => {
+    expect(peelerFlat('before(hit)after')).toMatchInlineSnapshot(`
+      {
+        "nodes": [
+          {
+            "content": "before",
+            "id": 0,
+            "nodeType": "text",
+            "parentId": null,
+            "pos": {
+              "depth": 0,
+              "end": 6,
+              "start": 0,
+            },
+          },
+          {
+            "content": "hit",
+            "id": 2,
+            "nodeType": "text",
+            "parentId": 1,
+            "pos": {
+              "depth": 1,
+              "end": 10,
+              "start": 7,
+            },
+          },
+          {
+            "childIds": [
+              2,
+            ],
+            "close": ")",
+            "content": "(hit)",
+            "id": 1,
+            "innerContent": "hit",
+            "nodeType": "bracket",
+            "open": "(",
+            "parentId": null,
+            "pos": {
+              "depth": 0,
+              "end": 10,
+              "start": 6,
+            },
+          },
+          {
+            "content": "after",
+            "id": 3,
+            "nodeType": "text",
+            "parentId": null,
+            "pos": {
+              "depth": 0,
+              "end": 16,
+              "start": 11,
+            },
+          },
+        ],
+        "rootIds": [
+          0,
+          1,
+          3,
+        ],
+      }
+    `)
+  })
+
+  it('nested', () => {
+    expect(peelerFlat('a(b(c)b)a')).toMatchInlineSnapshot(`
+      {
+        "nodes": [
+          {
+            "content": "a",
+            "id": 0,
+            "nodeType": "text",
+            "parentId": null,
+            "pos": {
+              "depth": 0,
+              "end": 1,
+              "start": 0,
+            },
+          },
+          {
+            "content": "b",
+            "id": 2,
+            "nodeType": "text",
+            "parentId": 1,
+            "pos": {
+              "depth": 1,
+              "end": 3,
+              "start": 2,
+            },
+          },
+          {
+            "content": "c",
+            "id": 4,
+            "nodeType": "text",
+            "parentId": 3,
+            "pos": {
+              "depth": 2,
+              "end": 5,
+              "start": 4,
+            },
+          },
+          {
+            "childIds": [
+              4,
+            ],
+            "close": ")",
+            "content": "(c)",
+            "id": 3,
+            "innerContent": "c",
+            "nodeType": "bracket",
+            "open": "(",
+            "parentId": 1,
+            "pos": {
+              "depth": 1,
+              "end": 5,
+              "start": 3,
+            },
+          },
+          {
+            "content": "b",
+            "id": 5,
+            "nodeType": "text",
+            "parentId": 1,
+            "pos": {
+              "depth": 1,
+              "end": 7,
+              "start": 6,
+            },
+          },
+          {
+            "childIds": [
+              2,
+              3,
+              5,
+            ],
+            "close": ")",
+            "content": "(b(c)b)",
+            "id": 1,
+            "innerContent": "b(c)b",
+            "nodeType": "bracket",
+            "open": "(",
+            "parentId": null,
+            "pos": {
+              "depth": 0,
+              "end": 7,
+              "start": 1,
+            },
+          },
+          {
+            "content": "a",
+            "id": 6,
+            "nodeType": "text",
+            "parentId": null,
+            "pos": {
+              "depth": 0,
+              "end": 9,
+              "start": 8,
+            },
+          },
+        ],
+        "rootIds": [
+          0,
+          1,
+          6,
+        ],
+      }
+    `)
+  })
+
+  it('empty input', () => {
+    expect(peelerFlat('')).toMatchInlineSnapshot(`
+      {
+        "nodes": [],
+        "rootIds": [],
+      }
+    `)
+  })
 })
