@@ -1,6 +1,18 @@
 import { PNode, Options, FlatParseResult } from './types'
 import { parse, parseFlat } from './parse'
 
+export type {
+  Pos,
+  PNode,
+  PNodeText,
+  PNodeBracket,
+  Options,
+  FlatNode,
+  FlatNodeText,
+  FlatNodeBracket,
+  FlatParseResult,
+} from './types'
+
 function main(text: string, options?: Partial<Options>): PNode[] {
   if (typeof text !== 'string') {
     throw new TypeError(`Expected a string, got ${typeof text}`)

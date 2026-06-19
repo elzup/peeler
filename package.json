@@ -14,11 +14,14 @@
     "prettier": "^2.8.4",
     "ts-jest": "^29.0.5",
     "ts-node": "^10.9.1",
+    "tsup": "^8.5.1",
     "typescript": "^5.0.0"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=18"
   },
+  "type": "module",
+  "sideEffects": false,
   "files": [
     "dist"
   ],
@@ -35,12 +38,26 @@
       "git add"
     ]
   },
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
   "scripts": {
-    "build": "tsc --build tsconfig.build.json",
+    "build": "tsup",
     "deploy": "yarn build && yarn publish",
     "lint": "eslint --ext .ts src",
-    "test": "yarn lint && jest"
+    "test": "yarn lint && jest",
+    "prepublishOnly": "yarn build"
   }
 }
