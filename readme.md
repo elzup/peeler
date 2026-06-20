@@ -1,8 +1,12 @@
-# peeler [![npm version](https://badge.fury.io/js/elzup.svg)](https://badge.fury.io/js/elzup) ![GitHub Actions](https://github.com/elzup/peeler/workflows/Node%20CI/badge.svg)
+# peeler
 
-[![NPM](https://nodei.co/npm/peeler.png)](https://nodei.co/npm/peeler/)
+<p align="center">
+  <img src="./eyecatch.svg" alt="peeler decomposes 'p(ee{l}e)r' into depth layers" width="520">
+</p>
 
 > parser for only bracket.
+
+[![NPM](https://nodei.co/npm/peeler.png)](https://nodei.co/npm/peeler/)
 
 ## Install
 

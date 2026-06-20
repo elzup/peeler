@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="572px" height="396px" viewBox="0 0 572 396" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>eyecatch</title>
+    <desc>Created with Sketch.</desc>
+    <g id="eyecatch" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="572" height="396"></rect>
+        <g id="logo-layers" transform="translate(96.000000, 42.000000)">
+            <g id="Group" transform="translate(81.000000, 0.000000)" font-family="Menlo-Bold, Menlo" font-size="32" font-weight="bold">
+                <text id="p" fill="#1F2937">
+                    <tspan x="0" y="30">p</tspan>
+                </text>
+                <text id="(" fill="#2563EB">
+                    <tspan x="26" y="30">(</tspan>
+                </text>
+                <text id="e" fill="#1F2937">
+                    <tspan x="48" y="30">e</tspan>
+                </text>
+                <text id="e" fill="#1F2937">
+                    <tspan x="66" y="30">e</tspan>
+                </text>
+                <text id="{" fill="#F59E0B">
+                    <tspan x="90" y="30">{</tspan>
+                </text>
+                <text id="l" fill="#EC4899">
+                    <tspan x="114" y="30">l</tspan>
+                </text>
+                <text id="}" fill="#F59E0B">
+                    <tspan x="138" y="30">}</tspan>
+                </text>
+                <text id="e" fill="#1F2937">
+                    <tspan x="162" y="30">e</tspan>
+                </text>
+                <text id=")" fill="#2563EB">
+                    <tspan x="184" y="30">)</tspan>
+                </text>
+                <text id="r" fill="#1F2937">
+                    <tspan x="206" y="30">r</tspan>
+                </text>
+            </g>
+            <path d="M141,44 L141,66" id="Path" stroke="#CBD5E1" stroke-width="2"></path>
+            <polyline id="Path" stroke="#CBD5E1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="134 60 141 69 148 60"></polyline>
+            <text id="p,-(,-ee,-{,-l,-},-e" fill="#1F2937" font-family="Menlo-Bold, Menlo" font-size="19" font-weight="bold">
+                <tspan x="49" y="100">p, (, ee, {, l, }, e, ), r</tspan>
+            </text>
+            <path d="M141,116 L141,142" id="Path" stroke="#CBD5E1" stroke-width="2"></path>
+            <polyline id="Path" stroke="#CBD5E1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="134 136 141 145 148 136"></polyline>
+            <text id="group-by-depth" fill="#FFFFFF" font-family="Menlo-Regular, Menlo" font-size="12" font-weight="normal">
+                <tspan x="90" y="134">group by depth</tspan>
+            </text>
+            <g id="Group" transform="translate(0.000000, 170.000000)" font-family="Menlo-Bold, Menlo" font-size="26" font-weight="bold">
+                <text id="[" fill="#94A3B8">
+                    <tspan x="0" y="24">[</tspan>
+                </text>
+                <text id="]" fill="#94A3B8">
+                    <tspan x="79" y="136">]</tspan>
+                </text>
+                <text id="[p,-(),-r]" fill="#2563EB">
+                    <tspan x="24" y="24">[p, (), r]</tspan>
+                </text>
+                <text id="," fill="#94A3B8">
+                    <tspan x="189" y="24">,</tspan>
+                </text>
+                <text id="," fill="#94A3B8">
+                    <tspan x="205" y="80">,</tspan>
+                </text>
+                <text id="[ee,-{},-e]" fill="#F59E0B">
+                    <tspan x="24" y="80">[ee, {}, e]</tspan>
+                </text>
+                <text id="[l]" fill="#EC4899">
+                    <tspan x="24" y="136">[l]</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(313.000000, 177.000000)" font-family="Menlo-Bold, Menlo" font-size="14" font-weight="bold">
+                <text id="depth-0" fill="#2563EB">
+                    <tspan x="0" y="13">depth 0 </tspan>
+                </text>
+                <text id="depth-1" fill="#D97706">
+                    <tspan x="0" y="69">depth 1</tspan>
+                </text>
+                <text id="depth-2" fill="#EC4899">
+                    <tspan x="0" y="125">depth 2 </tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
