@@ -1,7 +1,7 @@
 # peeler
 
 <p align="center">
-  <img src="./eyecatch.svg" alt="peeler decomposes 'p(ee{l}e)r' into depth layers" width="520">
+  <img src="https://cdn.jsdelivr.net/gh/elzup/peeler@2.0.1/eyecatch.svg" alt="peeler decomposes 'p(ee{l}e)r' into depth layers" width="520">
 </p>
 
 > parser for only bracket.
